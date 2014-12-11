@@ -168,7 +168,8 @@ def generate_tables(events):
             subroom_events = [e for e in day_events if e['room'] in room_slice]
                 
             # create subfile
-            subcontent = table_events(subroom_events, get_shortday(day_name))
+            subcontent = "\\pagebreak"
+            subcontent += table_events(subroom_events, get_shortday(day_name))
             subfile = get_texname("tableify_events_%s_%i"%
                                         (get_shortday(day_name),i) )
             write_tex(subcontent, subfile)
@@ -234,9 +235,7 @@ def table_events(allevents, msg=""):
     #Larger = lambda msg: "{\\small %s}"%msg
 
     rooms = sorted(roomTevents.keys())
-    content = "\\pagebreak"
-    content += "{\\fontsize{10}{8.2}\selectfont \\renewcommand{\\arraystretch}{0.9}%\n"
-    content += "\\begin{tabu} to \\linewidth {c" + "X"*len(rooms) + "}%\n"
+    content = "\\begin{tabu} to \\linewidth {c" + "X"*len(rooms) + "}%\n"
 
     # header: room & track
     content += "\multicolumn{1}{c}{} "
@@ -334,7 +333,7 @@ def table_events(allevents, msg=""):
         content += "\\\\ "+clines+"%\n"
         curhour += delta
     content += "\\tabucline[1pt]-"
-    content += "\\end{tabu}}%\n" # last } closes {\tiny
+    content += "\\end{tabu}%\n"
 
     return content
 
