@@ -1,0 +1,57 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[british]{babel}
+\usepackage{graphicx}
+
+\usepackage{talktables}
+\usepackage{booklet}
+
+% The year and edition (2001 was 1st)
+% (~ forces a space after the command-text)
+\newcommand{\FOSDEMyear}{2015~}
+\newcommand{\FOSDEMedition}{15\textsuperscript{th}~}
+
+\begin{document}
+
+
+% Cover page
+\pagestyle{empty}
+\label{cover}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{artwork/cover}
+
+\vfill
+{\Huge \bf Schedule: }
+
+$ $
+
+{\Huge \bf Sunday }
+\vfill
+(imagine this booklet being printed on, for example, light yellow, while the Saturday booklet on light blue)
+
+\end{center}
+
+
+\loadgeometry{default}
+
+% the tables...
+{% you may have to tweak these numbers to make all tables fit a page
+\fontsize{10}{7.8}\selectfont%
+\renewcommand{\arraystretch}{0.9}%
+%
+\input{gen-tables-sun}%
+}
+
+
+% TODO before priting: check that pages are divisible by 4
+
+%\pagestyle{empty}
+%\pagebreak
+%$ $
+%\pagebreak
+
+
+% Back cover - fill the whole page, image includes margins.
+\label{backcover}%
+\includegraphics[width=\textwidth]{artwork/campusmap}
+
+\end{document}
