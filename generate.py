@@ -194,6 +194,12 @@ def table_events(allevents, msg=""):
         # map has 'AW' as building name, not AW1
         if name.startswith('AW1'):
             return name.replace('AW1','AW')
+        elif name.startswith('UA2'):
+            return name.replace('UA2','UA')
+        elif name.startswith('UB2'):
+            return name.replace('UB2','UB')
+        elif name.startswith('UD2'):
+            return name.replace('UD2','UD')
         # map has 'J' as building name
         elif name == 'Janson':
             return 'J.Janson'
