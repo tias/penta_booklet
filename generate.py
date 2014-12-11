@@ -238,13 +238,11 @@ def table_events(allevents, msg=""):
     content = "\\begin{talktable}{%i}\n"%len(rooms)
 
     # header: room & track
-    content += "\multicolumn{1}{c}{} "
     for r in rooms:
-        content += " & \multicolumn{1}{c}{\\bf %s} "%larger(roomTitle[r])
+        content += " & \HeaderTitle{%s}"%roomTitle[r]
     content += "\\\\ \n"
-    content += "\multicolumn{1}{c}{} "
     for r in rooms:
-        content += " & \multicolumn{1}{c}{%s} "%larger(r)
+        content += " & \HeaderSubtitle{%s}"%r
     content += "\\\\ \\tabucline[1pt]- \n"
 
     # iterate per hour
@@ -277,35 +275,33 @@ def table_events(allevents, msg=""):
                 msg = e['title']
                 speakers = e['speakers']
                 timerows = math.ceil((tEv[1] - tEv[0]).total_seconds() / delta.total_seconds())
+                linelength = 28
                 if timerows == 1:
                     # restrict and truncate to 1 row
-                    content += "\\truncate{\linewidth}{%s}"%msg
+                    content += "\\truncate{\linewidth}{%s}\n"%msg
                 elif timerows == 2:
-                    # restrict and truncate to 1 row, but larger
-                    msg = "\\truncate{\linewidth}{%s}"%msg
-                    content += "\\multirow{%i}{\linewidth}{%s}"%(timerows,msg)
+                    # restrict and truncate to 1 row, but with title styled (=larger)
+                    content += "\\CellTalkSingle{%i}{%s}{%s}\n"%\
+                                 (timerows, msg, "")
                 elif timerows == 3 or timerows == 4:
-                    authors = "{ -- %s}"%", ".join(speakers)
-                    minipage = "\\begin{minipage}{\linewidth}"
-                    linelength = 28
+                    tspeakers = ", ".join(speakers)
+                    texcmd = "CellTalk"
                     if len(msg) <= linelength:
-                        # case 1: title 1 line + author 1 line
-                        minipage += larger(msg)
-                        minipage += "\\\\ \\truncate{\linewidth}{%s}"%authors
+                        # case 1: title (fits 1 line) + author 1 line
+                        texcmd += "Trunk"
                     else:
                         # 2 lines of text, author inline if enough space
-                        restchars = (linelength*2) - len(msg)
-                        if restchars < 12:
-                            minipage += larger(truncate(msg, linelength*2))
-                        else:
-                            minipage += larger(msg)
-                            tspeakers = truncate(", ".join(speakers), restchars-4) # minus ' -- '
-                            minipage += "{$ $ -- %s}"%tspeakers
+                        texcmd += "TrunkTrunk"
+                        #restchars = (linelength*2) - len(msg)
+                        #if restchars < 12:
+                        #    # inline author
+                        #    minipage += larger(truncate(msg, linelength*2))
+                    content += "\\%s{%i}{%s}{%s}\n"%\
+                               (texcmd, timerows, msg, tspeakers)
 
-                    minipage += "\\end{minipage}"
-                    content += "\\multirow{%i}{\linewidth}{\parbox{\linewidth}{%s}}"%(timerows,minipage)
                 else:
-                    linelength = 20
+                    tspeakers = ", ".join(speakers)
+                    texcmd = "CellTalk"
                     linesleft = math.ceil(timerows/2)
 
                     if (len(msg)/linelength) > (linesleft-1): #-1 for author
@@ -313,19 +309,18 @@ def table_events(allevents, msg=""):
                         msg = truncate(msg, linelength*(linesleft-1))
                     linesleft -= math.ceil(len(msg)/linelength)
 
-                    tspeakers = truncate(", ".join(speakers),
-                                         (linelength*(linesleft-1))-4) # minus ' -
-                    linesleft -= math.ceil(len(tspeakers)/linelength)
+                    if linesleft == 1:
+                        texcmd += "Trunk"
+                    else:
+                        tspeakers = truncate(", ".join(speakers),
+                                             (linelength*(linesleft-1))-4) # minus ' -
+                        linesleft -= math.ceil(len(tspeakers)/linelength)
 
-                    minipage = "\\begin{minipage}{\linewidth}"
-                    minipage += larger(msg)
-                    if linesleft > 1:
-                        # long version, with blank line between title/authors
-                        minipage += "\\\\ $ $"
-                    minipage += "\\\\ { -- %s}"%tspeakers
-                    minipage += "\\end{minipage}"
-                    # span multiple rows
-                    content += "\\multirow{%i}{\linewidth}{\parbox{\linewidth}{%s}}"%(timerows,minipage)
+                        if linesleft <= 1:
+                            texcmd += "Compact"
+                    content += "\\%s{%i}{%s}{%s}\n"%\
+                               (texcmd, timerows, msg, tspeakers)
+
             # draw line under this cell?
             if status == 'NONE' or \
                curhour <= tEv[1] <= curhour+delta: # end of slot

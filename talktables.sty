@@ -1,7 +1,7 @@
 %
 % Putting the talks (program) in tabu tables
 %
-% Tias Guns, based on roomoverview.sty of Philip Paeps
+% Tias Guns
 %
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{talktables}[2014/12/08]
@@ -10,162 +10,63 @@
 \usepackage[table]{xcolor}
 \usepackage{truncate}
 
-%
-\gdef\Flag{0}%			% State 0: Overview not started yet
-				% State 1: Start room, print title
-				% State 2: Print item
-				% State 3: Close overview
-%
-\newcommand{\error@message}[1]{\errmessage{^^JError: #1^^J^^J}}
-\newcommand{\warning@message}[1]{\message{^^JWarning: #1^^J^^J}}
-%
-\newenvironment{roomoverview}[0]{%
-	\ifcase\Flag % 0: not started yet
-		%
-		\gdef\Flag{1}%
-		\begin{table}[!h]%
-		\small%
-		\begin{tabular*}{\textwidth}{@{}l@{ }l p{0.5\textwidth} p{0.3\textwidth} @{}}%
-		%
-	\else \error@message{Room overviews cannot be nested}%
-	\fi}%
-{%
-        \ifcase\Flag
-            %
-            \error@message{You must first begin a room overview}%
-            %
-	\or
-	    %
-            \error@message{Zero events in roomoverview}%
-	    %
-	\or
-	    %
-	    \hline%
-	    \end{tabular*}%
-	    \end{table}%
-	    %
-	\else \error@message{Internal error}%
-        \fi%
-        \gdef\Flag{0}%
-}%
-%
-\newcommand{\Event}[6]{%
-	%
-	% #1: Title
-	% #2: Subtitle
-	% #3: Speaker
-	% #4: Day
-	% #5: Start time
-	% #6: End time
-	%
-        \ifcase\Flag
-		\error@message{Room overview not started yet}%
-	\or
-		\Event@Title%
-		\Event@Line{#1}{#2}{#3}{#4}{#5}{#6}%
-	\or
-
-		\Event@Line{#1}{#2}{#3}{#4}{#5}{#6}%
-	\else \error@message{Internal error}%
-	\fi%
-}%
-%
-\newcommand{\Event@Title}{
-	% Internal command.  Called by \Event.
-	\multicolumn{2}{@{}l}{\bf Time} & \bf Title & \bf Speaker(s)\\%
-	\hline%
-}%
-%
-\newcommand{\Event@Line}[6]{%
-	% Internal command. called by \Event.
-	\gdef\Flag{2}%
-	#4 & #5 -- #6 & #1
-	\if\relax\detokenize{#2}\relax\else
-		{\small --- #2}
-	\fi
-	& #3\\%
-}%
-%
-% for main track talks
-\newcommand{\Maintrack}[6]{%
-	%
-	% #1: Title
-	% #2: Subtitle
-	% #3: Speaker
-	% #4: Day
-	% #5: Start time
-	% #6: End time
-	%
-    \subsection{#1}
-    \if\relax\detokenize{#2}\relax\else
-        {\vspace{-1ex}\large #2}\\
-    \fi
-    {\bf #3} \hspace*{\fill} {\small #4 #5 -- #6}
-}%
-\newcommand{\Room}[2]{%
-	%
-	% #1: Track
-	% #2: Room
-	%
-    \bigskip%
-    \colorsection{%
-    {\Large\bf #1} \hspace*{\fill} {\bf #2}
-
-    }%
-}%
-\newcommand{\colorsection}[1]{%
-  \colorbox{gray!20}{\parbox{\dimexpr\linewidth-2\fboxsep}{#1}}%
-}
-\newenvironment{trackoverview}[0]{%
-    \begin{center}
-    \onehalfspacing
-    \begin{tabular}{l l}
-}%
-{%
-    \end{tabular}
-    \end{center}
-}%
-\newcommand{\ItemTrack}[2]{%
-	%
-	% #1: Track
-	% #2: ref
-	%
-    #1 & page~\pageref{#2} \\
-}%
-\newenvironment{roomoverview_wide}[0]{%
-	\ifcase\Flag % 0: not started yet
-		%
-		\gdef\Flag{1}%
-		\begin{table}[!h]%
-		\small%
-		\begin{tabular*}{\textwidth}{@{}l@{ }l p{0.6\textwidth} p{0.2\textwidth} @{}}%
-		%
-	\else \error@message{Room overviews cannot be nested}%
-	\fi}%
-{%
-        \ifcase\Flag
-            %
-            \error@message{You must first begin a room overview}%
-            %
-	\or
-	    %
-            \error@message{Zero events in roomoverview}%
-	    %
-	\or
-	    %
-	    \hline%
-	    \end{tabular*}%
-	    \end{table}%
-	    %
-	\else \error@message{Internal error}%
-        \fi%
-        \gdef\Flag{0}%
-}%
-%
-% FROM HERE ACTUAL TALKTABLES
-%
 \newenvironment{talktable}[1]{%
     \begin{tabu} to \linewidth {c *{#1}{X} }
 }{
     \end{tabu}
-}
+}%
+\newcommand{\HeaderTitle}[1]{%
+    \multicolumn{1}{c}{\bf \large #1}%
+}%
+\newcommand{\HeaderSubtitle}[1]{%
+    \multicolumn{1}{c}{\large #1}%
+}%
+\newcommand{\TalkTitle}[1]{%
+    {\large #1}%
+}%
+\newcommand{\TalkSpeaker}[1]{%
+    {#1}%
+}%
+\newcommand{\CellTalk}[3]{%
+	%
+    % #1: nr rows
+	% #2: Title
+	% #3: Authors
+	%
+    \multirow{#1}{\linewidth}{%
+     \begin{minipage}{\linewidth}
+     \TalkTitle{#2}\\%
+     $ $\\
+     \TalkSpeaker{-- #3}%
+     \end{minipage}%
+    }%
+}%
+\newcommand{\CellTalkCompact}[3]{%
+    \multirow{#1}{\linewidth}{%
+     \begin{minipage}{\linewidth}
+     \TalkTitle{#2}\\
+     \TalkSpeaker{-- #3}%
+     \end{minipage}%
+    }%
+}%
+\newcommand{\CellTalkTrunk}[3]{%
+    \multirow{#1}{\linewidth}{%
+     \begin{minipage}{\linewidth}
+     \TalkTitle{#2}\\
+     \TalkSpeaker{\truncate{\linewidth}{-- #3}}%
+     \end{minipage}%
+    }%
+}%
+\newcommand{\CellTalkTrunkTrunk}[3]{%
+    \multirow{#1}{\linewidth}{%
+     \begin{minipage}{\linewidth}
+     \TalkTitle{\truncate{\linewidth}{#2}}\\
+     \TalkSpeaker{\truncate{\linewidth}{-- #3}}%
+     \end{minipage}%
+    }%
+}%
+\newcommand{\CellTalkSingle}[3]{%
+    \multirow{#1}{\linewidth}{%
+     \TalkTitle{\truncate{\linewidth}{#2}}%
+    }%
+}%
