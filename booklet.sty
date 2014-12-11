@@ -54,6 +54,10 @@
 \RequirePackage{url}
 \def\UrlFont{\tt}
 
+\RequirePackage{color}
+\RequirePackage{textcomp}
+\RequirePackage{setspace} % line spacing
+
 % Pretty chapter title page.
 \def\@part[#1]#2{%
   \newpage
@@ -70,9 +74,6 @@
   \setlength{\parskip}{0pt}
   \setlength{\parsep}{0pt}}{\end{list}
 }
-
-% Voodoo for typesetting room overviews
-\RequirePackage{roomoverview}
 
 % Must be last!
 \RequirePackage{hyperref}

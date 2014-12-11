@@ -1,11 +1,15 @@
 %
-% Copyright (c) 2013 Philip Paeps
+% Putting the talks (program) in tabu tables
 %
-% Voodoo for typesetting pretty tables with an overview of a room.
+% Tias Guns, based on roomoverview.sty of Philip Paeps
 %
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{roomoverview}[2013/01/25]
-\usepackage{xcolor}
+\ProvidesPackage{talktables}[2014/12/08]
+\usepackage{tabu}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{truncate}
+
 %
 \gdef\Flag{0}%			% State 0: Overview not started yet
 				% State 1: Start room, print title
