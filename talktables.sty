@@ -162,3 +162,10 @@
         \gdef\Flag{0}%
 }%
 %
+% FROM HERE ACTUAL TALKTABLES
+%
+\newenvironment{talktable}[1]{%
+    \begin{tabu} to \linewidth {c *{#1}{X} }
+}{
+    \end{tabu}
+}

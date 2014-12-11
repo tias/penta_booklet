@@ -235,7 +235,7 @@ def table_events(allevents, msg=""):
     #Larger = lambda msg: "{\\small %s}"%msg
 
     rooms = sorted(roomTevents.keys())
-    content = "\\begin{tabu} to \\linewidth {c" + "X"*len(rooms) + "}%\n"
+    content = "\\begin{talktable}{%i}\n"%len(rooms)
 
     # header: room & track
     content += "\multicolumn{1}{c}{} "
@@ -333,7 +333,7 @@ def table_events(allevents, msg=""):
         content += "\\\\ "+clines+"%\n"
         curhour += delta
     content += "\\tabucline[1pt]-"
-    content += "\\end{tabu}%\n"
+    content += "\\end{talktable}%\n"
 
     return content
 
