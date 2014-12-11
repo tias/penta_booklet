@@ -1,0 +1,128 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[british]{babel}
+
+\usepackage{color}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{wrapfig}
+\usepackage{ulem} % \uline: underline with line breaks
+\usepackage{setspace} % line spacing
+% \usepackage{fix-cm} % for huge font
+\usepackage{multirow}
+\usepackage{tabu}
+\usepackage{truncate}
+
+\usepackage{booklet}
+%
+% A5 is really tight in terms of space.  Make the most
+% of the space we have available to us - squeeze!
+%
+
+%
+% Definitions.  Make it easy to update the booklet from
+% year to year without having to go through every page
+% looking for references to old cruft.
+%
+
+\newenvironment{dense_itemize}{
+\begin{list}{\labelitemi}{\leftmargin=1em}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}{\end{list}
+}
+
+% The year and edition (2001 was 1st)
+% (~ forces a space after the command-text)
+\newcommand{\FOSDEMyear}{2014~}
+\newcommand{\FOSDEMedition}{14\textsuperscript{th}~}
+
+\begin{document}
+
+% Cover page - fill the whole page, image includes margins.
+\pagestyle{empty}
+\newgeometry{top=0cm,bottom=0cm,left=0cm,right=0cm,footskip=0pt}
+\label{cover}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{artwork/cover}
+
+\vfill
+{\Huge \bf Schedule: }
+
+$ $
+
+{\Huge \bf Saturday }
+\vfill
+(imagine this booklet being printed on, for example, light blue, while the Sunday booklet on light yellow)
+
+\end{center}
+%\pagebreak
+
+%% Other pages - use sane margins, add page numbers.
+%\newgeometry{top=1cm,bottom=1cm,left=0.5cm,right=0.5cm,nofoot}
+\loadgeometry{default}
+%\fancyhf{}
+%\lhead[\tikzheadL %my left header
+%] {\tikzheadR %my right header
+%} 
+
+%\label{chap:donations}
+%\input{chap-donations}
+
+%\pagebreak
+%\pagestyle{plain}
+
+%\framebox{The TOC does not match this booklet with tables!}
+
+%\label{chap:infodesk}
+%\input{chap-infodesk}
+
+%\pagebreak
+
+%\label{chap:tables}
+%\input{gen-chap-tables}
+\input{generated/tableify_events_sat_0.tex}
+\input{generated/tableify_events_sat_1.tex}
+\input{generated/tableify_events_sat_2.tex}
+\input{generated/tableify_events_sat_3.tex}
+\input{generated/tableify_events_sat_4.tex}
+\input{generated/tableify_events_sat_5.tex}
+\input{generated/tableify_events_sat_6.tex}
+\input{generated/tableify_events_sat_7.tex}
+
+%\pagebreak
+
+%\label{chap:sponsors}
+%\input{chap-sponsors}
+
+%\pagebreak
+%\vfill
+
+%\label{chap:feedback}
+%\input{chap-feedback}
+
+%\pagebreak
+
+%\label{chap:maps}
+%\input{chap-maps}
+
+% Map of surroundings - fill the whole page.
+%\newgeometry{top=0cm,bottom=0cm,left=0cm,right=0cm}
+%\pagestyle{empty}
+%\label{surroundings}
+%\includegraphics[width=\textwidth]{maps/surroundings}
+
+
+% TODO before priting: check that pages are divisible by 4
+
+
+%\pagestyle{empty}
+%\pagebreak
+%$ $
+%\pagebreak
+
+% Back cover - fill the whole page, image includes margins.
+\label{backcover}%
+\includegraphics[width=\textwidth]{artwork/campusmap}
+
+\end{document}

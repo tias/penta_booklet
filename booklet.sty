@@ -1,0 +1,70 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{booklet}[2013/01/04]
+
+% Fall back to lmodern if Frutiger is not available.
+\IfFileExists{frutiger.sty}{
+    \RequirePackage[scaled]{frutiger}
+    \renewcommand*\seriesdefault{lc}
+    \renewcommand*\bfdefault{bc}
+    \def\tt{\small\fontseries{m}\fontshape{n}\selectfont}
+}{
+    \RequirePackage{lmodern}
+}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\renewcommand*\familydefault{\sfdefault}
+
+\def\smaller{\footnotesize\selectfont}
+
+% Never hyphenate the word FOSDEM!
+\hyphenation{FOSDEM}
+
+% XXX: Frutiger has its own Euro symbol, but textcomp
+%  can't get at it for some reason.  Happily, the
+%  "official" symbol provided by eurosym looks quite
+%  pretty in combination with Frutiger, provided we
+%  shrink it a little.
+\RequirePackage{eurosym}
+\def\eur{{\small\fontseries{m}\fontshape{n}\selectfont\euro}}
+
+% Take complete control over page geometry.
+\RequirePackage[a5paper]{geometry}
+
+% Default geometry.
+\newgeometry{top=1cm,bottom=1cm,left=0.5cm,right=0.5cm,footskip=0.5cm}
+\savegeometry{default}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1ex}
+
+% Leave a little less space between section headers.
+\RequirePackage[compact]{titlesec}
+\titlespacing{\section}{0pt}{*0}{*0}
+\titlespacing{\subsection}{0pt}{1ex}{*0}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}
+
+% Never number sections, only print sections in TOC.
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{1}
+
+\RequirePackage{calc}
+\RequirePackage{multicol}
+\RequirePackage[absolute]{textpos}
+
+\RequirePackage{url}
+\def\UrlFont{\tt}
+
+% Pretty chapter title page.
+\def\@part[#1]#2{%
+  \newpage
+  \null
+  \vspace*{\fill}%
+  \begin{center}%
+    {\fontseries{b}\fontsize{50}{60}\selectfont #1}%
+  \end{center}}
+
+% Voodoo for typesetting room overviews
+\RequirePackage{roomoverview}
+
+% Must be last!
+\RequirePackage{hyperref}

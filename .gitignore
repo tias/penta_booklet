@@ -1,0 +1,25 @@
+# XML data from website
+xml
+
+# Editor swap files
+*.swp
+*.tex~
+*.tex.backup
+
+# Converted images
+*-converted-to.pdf
+
+# Build system intermediaries
+*.aux
+*.dvi
+*.log
+*.out
+booklet.aux.make
+booklet.auxbbl.make
+booklet.auxbbl.make.temp
+booklet.auxtarget.make
+booklet.d
+booklet.fls
+booklet.pdf.1st.make
+booklet.out.make
+booklet.pdf

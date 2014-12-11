@@ -1,0 +1,16 @@
+## Latex
+# To make the booklet:
+pdflatex booklet_sat
+
+
+## To regenerate the tables from penta:
+# get the data:
+wget --no-check-certificate https://fosdem.org/2014/schedule/xml
+
+# make sure directory 'generated' exists:
+mkdir generated
+
+# update the chapters
+./generate.py xml
+
+## The script is smart enough not to overwrite files unless the relevant data changed (even when you modified the file in the mean time).
