@@ -148,9 +148,6 @@ def get_hash(fname, hashtag):
     
 
 def generate_tables(events):
-    fname = "gen-chap-tables.tex"
-    content = ""
-
     day_groups = defaultdict(list)
     for e in events:
         day_groups[e['day']].append(e)
@@ -161,6 +158,9 @@ def generate_tables(events):
             yield seq[start:start+rowlen]
 
     for (day_name, day_events) in day_groups.iteritems():
+        fname = "gen-tables-%s.tex"%get_shortday(day_name)
+        content = ""
+
         rooms = set([e['room'] for e in day_events])
 
         # per page 4 rooms
@@ -176,7 +176,7 @@ def generate_tables(events):
             # include subfile
             content += "\\input{%s}\n"%subfile
 
-    write_tex(content, fname)
+        write_tex(content, fname)
 
 def truncate(msg, length):
     # this should better be done in latex, but too advanced for me (Tias)

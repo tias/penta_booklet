@@ -63,6 +63,14 @@
     {\fontseries{b}\fontsize{50}{60}\selectfont #1}%
   \end{center}}
 
+% denser itemize
+\newenvironment{dense_itemize}{
+\begin{list}{\labelitemi}{\leftmargin=1em}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}{\end{list}
+}
+
 % Voodoo for typesetting room overviews
 \RequirePackage{roomoverview}
 
