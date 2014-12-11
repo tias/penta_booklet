@@ -163,8 +163,8 @@ def generate_tables(events):
 
         rooms = set([e['room'] for e in day_events])
 
-        # per page 4 rooms
-        for (i,room_slice) in enumerate(get_slice(sorted(rooms), 3)):
+        # per page 4 rooms, so it fits in modulo4 pages
+        for (i,room_slice) in enumerate(get_slice(sorted(rooms), 4)):
             subroom_events = [e for e in day_events if e['room'] in room_slice]
                 
             # create subfile
@@ -236,10 +236,6 @@ def table_events(allevents, msg=""):
                 return ('MID',e)
         return ('NONE',None)
 
-    larger = lambda msg: "{\\large %s}"%msg
-    Larger = lambda msg: msg
-    #Larger = lambda msg: "{\\small %s}"%msg
-
     rooms = sorted(roomTevents.keys())
     content = "\\begin{talktable}{%i}\n"%len(rooms)
 
@@ -281,7 +277,7 @@ def table_events(allevents, msg=""):
                 msg = e['title']
                 speakers = e['speakers']
                 timerows = math.ceil((tEv[1] - tEv[0]).total_seconds() / delta.total_seconds())
-                linelength = 28
+                linelength = 23
                 if timerows == 1:
                     # restrict and truncate to 1 row
                     content += "\\truncate{\linewidth}{%s}\n"%msg
