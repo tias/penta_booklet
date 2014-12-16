@@ -213,6 +213,17 @@ def table_events(allevents, msg=""):
         else:
             return name
 
+    def titlehack(name):
+        # for rooms with a too long name
+        if name == 'HPC and computational science':
+            return 'HPC and comp. science'
+        elif name == 'Configuration management':
+            return 'Configuration mngmt'
+        elif name == 'Microkernel-based operating systems':
+            return 'Microkernel-based OSs'
+        else:
+            return name
+
 
     roomTevents = defaultdict(list)
     roomTitle = defaultdict()
@@ -222,7 +233,7 @@ def table_events(allevents, msg=""):
         room = roomhack(e['room'])
         roomTevents[room].append( (start,stop, e) )
         # title
-        roomTitle[room] = e['track']
+        roomTitle[room] = titlehack(e['track'])
         if e['type'] in ['maintrack', 'keynote']:
             roomTitle[room] = "Main tracks"
 
