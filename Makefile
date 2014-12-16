@@ -6,5 +6,5 @@ gen:
 tex:
 	pdflatex booklet_sat && pdflatex booklet_sun
 
-booklet:
+booklet: all
 	pdfbook booklet_sat.pdf && pdfbook booklet_sun.pdf
