@@ -258,8 +258,10 @@ def table_events(allevents, msg=""):
     rooms = sorted(roomTevents.keys())
     # hack: main tracks fixed order
     if 'Main tracks' in roomTitle.values():
-        # oh so ugly... J.Janson, K.1.105, H.2215
-        rooms = [rooms[1], rooms[2], rooms[0]]
+        # wanted: J.Janson, K.1.105, H.2215
+        if rooms[0].startswith('H.2215'):
+            ltalk = rooms.pop(0)
+            rooms.append(ltalk)
         
 
     content = "\\begin{talktable}{%i}\n"%len(rooms)
