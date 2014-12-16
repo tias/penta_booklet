@@ -277,7 +277,7 @@ def table_events(allevents, msg=""):
                 msg = e['title']
                 speakers = e['speakers']
                 timerows = math.ceil((tEv[1] - tEv[0]).total_seconds() / delta.total_seconds())
-                linelength = 23
+                linelength = 25
                 if timerows == 1:
                     # restrict and truncate to 1 row
                     content += "\\truncate{\linewidth}{%s}\n"%msg
@@ -306,12 +306,12 @@ def table_events(allevents, msg=""):
                     texcmd = "CellTalk"
                     linesleft = math.ceil(timerows/2)
 
-                    if (len(msg)/linelength) > (linesleft-1): #-1 for author
+                    if (1.0*len(msg)/linelength) > (linesleft-1): #-1 for author
                         # message too long, truncate it
                         msg = truncate(msg, linelength*(linesleft-1))
-                    linesleft -= math.ceil(len(msg)/linelength)
+                    linesleft -= math.ceil(1.0*len(msg)/linelength)
 
-                    if linesleft == 1:
+                    if linesleft <= 1:
                         texcmd += "Trunk"
                     else:
                         tspeakers = truncate(", ".join(speakers),
