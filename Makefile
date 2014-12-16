@@ -9,7 +9,12 @@ tex:
 booklet: all
 	pdfbook booklet_sat.pdf && pdfbook booklet_sun.pdf
 
-gen_2015:
-	./generate.py xml.2015
 
-2015: gen_2015 tex
+fetch:
+	wget -O xml https://fosdem.org/2015/schedule/xml
+
+
+gen_2014:
+	./generate.py xml.2014
+
+2014: gen_2014 tex
