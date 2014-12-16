@@ -163,8 +163,15 @@ def generate_tables(events):
 
         rooms = set([e['room'] for e in day_events])
 
+        # first page: main tracks and ltalks,
+        #             in: Janson, K.1.105 and H.2215
+        mainrooms = [r for r in ['Janson', 'K.1.105 (La Fontaine)', 'H.2215 (Ferrer)'] if r in rooms]
+        restrooms = rooms.difference(mainrooms)
+        paged_rooms = [mainrooms] + [x for x in get_slice(sorted(restrooms), 4)]
+
+
         # per page 4 rooms, so it fits in modulo4 pages
-        for (i,room_slice) in enumerate(get_slice(sorted(rooms), 4)):
+        for (i,room_slice) in enumerate(paged_rooms):
             subroom_events = [e for e in day_events if e['room'] in room_slice]
                 
             # create subfile
@@ -237,6 +244,12 @@ def table_events(allevents, msg=""):
         return ('NONE',None)
 
     rooms = sorted(roomTevents.keys())
+    # hack: main tracks fixed order
+    if 'Main tracks' in roomTitle.values():
+        # oh so ugly... J.Janson, K.1.105, H.2215
+        rooms = [rooms[1], rooms[2], rooms[0]]
+        
+
     content = "\\begin{talktable}{%i}\n"%len(rooms)
 
     # header: room & track
