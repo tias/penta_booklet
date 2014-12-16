@@ -161,7 +161,8 @@ def generate_tables(events):
         fname = "gen-tables-%s.tex"%get_shortday(day_name)
         content = ""
 
-        rooms = set([e['room'] for e in day_events])
+        # hack: all rooms except if only certification there
+        rooms = set([e['room'] for e in day_events if e['track'] != 'Certification'])
 
         # first page: main tracks and ltalks,
         #             in: Janson, K.1.105 and H.2215
