@@ -9,6 +9,12 @@ tex:
 booklet: all
 	pdfbook booklet_sat.pdf && pdfbook booklet_sun.pdf
 
+clean:
+	rm -f *.aux *.log *.out
+
+distclean: clean
+	rm -f gen-*.tex generated/*.tex booklet_sat*.pdf booklet_sun*.pdf
+
 
 fetch:
 	wget -O xml https://fosdem.org/2015/schedule/xml
