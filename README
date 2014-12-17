@@ -1,16 +1,33 @@
-## Latex
-# To make the booklet:
-pdflatex booklet_sat
+Script to turn pentabarf XML data into a booklet with tables containing the schedule (4 rooms per page, automatic truncation of titles/author names).
+
+Created for FOSDEM, a conference with ~20 rooms per day and 400+ talks, which necessitated creating such a compact schedule overview.
+
+Uses python + (pdf)latex.
 
 
-## To regenerate the tables from penta:
-# get the data:
-wget --no-check-certificate https://fosdem.org/2014/schedule/xml
+To use for FOSDEM:
+------------------
+1) fetch the XML data (uses wget)
+$ make fetch
 
-# make sure directory 'generated' exists:
-mkdir generated
+2) make the pdf (uses ./generate.py and pdflatex)
+$ make
 
-# update the chapters
-./generate.py xml
+3) turn it into a printable booklet (uses pdfbook)
+$ make booklet
 
-## The script is smart enough not to overwrite files unless the relevant data changed (even when you modified the file in the mean time).
+The output is booklet_sat-book.pdf and booklet_sun-book.pdf
+
+If some of the tables overflow the page (horizontally), you have to edit the booklet_sat.tex (or _sun) file and adjust the \fontsize{}{} scaling.
+
+If some of the columns are too wide (vertical overflow), you will have to shorten the name of some of the rooms; see the quick-hack in generate.py
+
+
+To use for another conference:
+------------------------------
+1) fetch the pentabarf XML data
+
+2) run ./generate.py on it.
+   this should be generic and create separate files for the different days and pages.
+
+3) copy booklet_sat.tex and modify it to include the above generated files. You can also change the layout, TOC, etc there. Make sure that the total number of pages is divisible by 4.
