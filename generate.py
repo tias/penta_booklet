@@ -272,7 +272,7 @@ def table_events(allevents, msg=""):
     content += "\\\\ \n"
     for r in rooms:
         content += " & \HeaderSubtitle{%s}"%r
-    content += "\\\\ \\tabucline[1pt]- \n"
+    content += "\\\\ \\thickcline{%i-%i} \n"%(1,len(rooms)+1)
 
     # iterate per hour
     curhour  = daystart
@@ -290,7 +290,11 @@ def table_events(allevents, msg=""):
                 content += "\\cellcolor{gray!15}"
             content += "\\raisebox{-0.4ex}{\\small%s %s}"%(xtra, strhour)
 
-        clines = "\\cline{%i-%i} "%(1,1)
+        xtra = ""
+        if strhour.endswith('55'):
+            xtra = "thick"
+        clines = "\\%scline{%i-%i} "%(xtra,1,1)
+
         for i,room in enumerate(rooms):
             content += " & "
             (status,tEv) = find_tEvent_hour(roomTevents[room], curhour, delta)
@@ -353,10 +357,13 @@ def table_events(allevents, msg=""):
             # draw line under this cell?
             if status == 'NONE' or \
                curhour <= tEv[1] <= curhour+delta: # end of slot
-                clines += "\\cline{%i-%i} "%(i+2,i+2) # offset 0
+                xtra = ""
+                if strhour.endswith('55'):
+                    xtra = "thick"
+                clines += "\\%scline{%i-%i} "%(xtra,i+2,i+2) # offset 0
         content += "\\\\ "+clines+"%\n"
         curhour += delta
-    content += "\\tabucline[1pt]-"
+    content += "\\thickcline{%i-%i}"%(1,len(rooms)+1)
     content += "\\end{talktable}%\n"
 
     return content
