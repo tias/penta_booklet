@@ -1,4 +1,6 @@
-Script to turn pentabarf XML data into a booklet with tables containing the schedule (4 rooms per page, automatic truncation of titles/author names).
+Script to turn pentabarf XML data into a booklet with full-page tables containing the schedule (4 rooms per page, automatic truncation of titles/author names).
+
+Pentabarf is an open-source conference management system, and other systems can export their data in the same format (for example, frab).
 
 Created for FOSDEM, a conference with ~20 rooms per day and 400+ talks, which necessitated creating such a compact schedule overview.
 
