@@ -71,11 +71,8 @@
     }%
 }%
 %
-% From: http://tex.stackexchange.com/questions/41758/how-can-i-reproduce-this-table-with-thick-lines
-\newcommand{\thickcline}[1]{%
-    \@thickcline #1\@nil%
-}
-\def\@thickcline#1-#2\@nil{%
+% Based on: http://tex.stackexchange.com/questions/41758/how-can-i-reproduce-this-table-with-thick-lines
+\newcommand{\thickcline}[3]{%
   \omit
   \@multicnt#1%
   \advance\@multispan\m@ne
@@ -83,7 +80,7 @@
   \@multicnt#2%
   \advance\@multicnt-#1%
   \advance\@multispan\@ne
-  \leaders\hrule\@height1pt\hfill
+  \leaders\hrule\@height#3\hfill
   \cr
-  \noalign{\vskip-1pt}%
+  \noalign{\vskip-#3}%
 }
