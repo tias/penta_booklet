@@ -249,10 +249,12 @@ def table_events(allevents, msg=""):
         for e in tEvents:
             if hour-delta < e[0] <= hour:
                 return ('START',e)
-            #elif hour < e[1] <= hour+delta:
-            #    return ('END',e)
             elif e[0] < hour < e[1]:
                 return ('MID',e)
+            elif hour < e[0] <= hour+delta:
+                # can be during end of previous slot, so returning
+                # prestart here is does not allow computing 'END'
+                return ('PRESTART',e)
         return ('NONE',None)
 
     rooms = sorted(roomTevents.keys())
@@ -301,13 +303,7 @@ def table_events(allevents, msg=""):
         for i,room in enumerate(rooms):
             content += " & "
             (status,tEv) = find_tEvent_hour(roomTevents[room], curhour, delta)
-            if status == 'NONE':
-                #if strhour.endswith('00'):
-                #    content += "\\cellcolor{gray!25}"
-                #elif strhour.endswith('30'):
-                #    content += "\\cellcolor{gray!15}"
-                pass
-            elif status == 'START':
+            if status == 'START':
                 e = tEv[2]
                 msg = e['title']
                 speakers = e['speakers']
@@ -359,8 +355,8 @@ def table_events(allevents, msg=""):
                                (texcmd, timerows, msg, tspeakers)
 
             # draw line under this cell?
-            if status == 'NONE' or \
-               curhour <= tEv[1] <= curhour+delta: # end of slot
+            if status == 'PRESTART' or \
+               (tEv and curhour <= tEv[1] <= curhour+delta): # end of slot
                 clineidx = 0
                 if strhour.endswith('25'):
                     clineidx = 1
