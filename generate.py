@@ -354,6 +354,9 @@ def table_events(allevents, msg=""):
                     content += "\\%s{%i}{%s}{%s}\n"%\
                                (texcmd, timerows, msg, tspeakers)
 
+            if status == 'NONE' or status == 'PRESTART':
+                content += "\\cellcolor{gray!05}"
+
             # draw line under this cell?
             if status == 'PRESTART' or \
                (tEv and curhour <= tEv[1] <= curhour+delta): # end of slot
