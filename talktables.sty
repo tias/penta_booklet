@@ -70,3 +70,17 @@
      \TalkTitle{\truncate{\linewidth}{#2}}%
     }%
 }%
+%
+% Based on: http://tex.stackexchange.com/questions/41758/how-can-i-reproduce-this-table-with-thick-lines
+\newcommand{\thickcline}[3]{%
+  \omit
+  \@multicnt#1%
+  \advance\@multispan\m@ne
+  \ifnum\@multicnt=\@ne\@firstofone{&\omit}\fi
+  \@multicnt#2%
+  \advance\@multicnt-#1%
+  \advance\@multispan\@ne
+  \leaders\hrule\@height#3\hfill
+  \cr
+  \noalign{\vskip-#3}%
+}
