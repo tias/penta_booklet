@@ -17,7 +17,7 @@ distclean: clean
 
 
 fetch:
-	wget -O xml https://fosdem.org/2015/schedule/xml
+	wget --no-check-certificate -O xml https://fosdem.org/2015/schedule/xml
 
 
 gen_2014:
