@@ -16,6 +16,15 @@ def date2str(date):
 def hrefname(string):
     return string.lower().replace('&','').replace(' ','_')
 
+# from https://github.com/whimboo/mozdownload/commit/f1c524a50265f931c8954d1ea2b10b8fb845ea18
+def total_seconds(td):
+    # Keep backward compatibility with Python 2.6 which doesn't have
+    # this method
+    if hasattr(td, 'total_seconds'):
+        return td.total_seconds()
+    else:
+        return (td.microseconds + (td.seconds + td.days * 24 * 3600) * 10**6) / 10**6
+
 
 def get_xml_events(xmlfile):
     tree = ET.parse(xmlfile)
@@ -311,7 +320,7 @@ def table_events(allevents, msg=""):
                 e = tEv[2]
                 msg = e['title']
                 speakers = e['speakers']
-                timerows = math.ceil((tEv[1] - tEv[0]).total_seconds() / delta.total_seconds())
+                timerows = math.ceil(total_seconds(tEv[1] - tEv[0]) / total_seconds(delta))
                 linelength = 25
                 if timerows == 1:
                     # restrict and truncate to 1 row
