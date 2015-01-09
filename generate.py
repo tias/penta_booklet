@@ -231,6 +231,8 @@ def table_events(allevents, msg=""):
             return 'Configuration mngmt'
         elif name == 'Microkernel-based operating systems':
             return 'Microkernel-based OSs'
+        elif name == 'Network management and SDN':
+            return 'Network mngmt and SDN'
         else:
             return name
 
