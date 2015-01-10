@@ -275,7 +275,6 @@ def table_events(allevents, msg=""):
             rooms.append(ltalk)
         
 
-    clinesizes = ["0.05pt", "0.7pt", "1pt"]
     content = "\\begin{talktable}{%i}\n"%len(rooms)
 
     # header: room & track
@@ -284,7 +283,7 @@ def table_events(allevents, msg=""):
     content += "\\\\ \n"
     for r in rooms:
         content += " & \HeaderSubtitle{%s}"%r
-    content += "\\\\ \\thickcline{%i}{%i}{%s} \n"%(1,len(rooms)+1, clinesizes[2])
+    content += "\\\\ \\hhline{*{%i}-} \n"%(len(rooms)+1)
 
     # iterate per hour
     curhour  = daystart
@@ -299,12 +298,14 @@ def table_events(allevents, msg=""):
                 xtra = "\\bf"
             content += "\\raisebox{-0.33ex}{\\small%s %s}"%(xtra, strhour)
 
-        clineidx = 0
-        if strhour.endswith('25'):
-            clineidx = 1
-        elif strhour.endswith('55'):
-            clineidx = 2
-        clines = "\\thickcline{%i}{%i}{%s} "%(1,1,clinesizes[clineidx])
+        # remove thickness diffs
+        #clineidx = 0
+        #if strhour.endswith('25'):
+        #    clineidx = 1
+        #elif strhour.endswith('55'):
+        #    clineidx = 2
+        #clines = "\\thickcline{%i}{%i}{%s} "%(1,1,clinesizes[clineidx])
+        hharg = "-"
 
         for i,room in enumerate(rooms):
             content += " & "
@@ -362,18 +363,14 @@ def table_events(allevents, msg=""):
             elif status == 'MID' or status == 'START':
                 content += "\\CellBG"
 
-            # draw line under this cell?
-            if status == 'PRESTART' or \
-               (tEv and curhour <= tEv[1] <= curhour+delta): # end of slot
-                clineidx = 0
-                if strhour.endswith('25'):
-                    clineidx = 1
-                elif strhour.endswith('55'):
-                    clineidx = 2
-                clines += "\\thickcline{%i}{%i}{%s} "%(i+2,i+2,clinesizes[clineidx])
-        content += "\\\\ "+clines+"%\n"
+            prestart = (find_tEvent_hour(roomTevents[room], curhour+delta, delta)[0] == 'START') # next delta, a talk will start
+            if prestart or status == 'END':
+                hharg += "-"
+            else:
+                hharg += "~"
+        content += "\\\\ \\hhline{%s} \n"%hharg
         curhour += delta
-    content += "\\thickcline{%i}{%i}{%s}"%(1,len(rooms)+1,clinesizes[2])
+    #content += "\\thickcline{%i}{%i}{%s}"%(1,len(rooms)+1,clinesizes[2])
     content += "\\end{talktable}%\n"
 
     return content
