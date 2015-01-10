@@ -369,7 +369,7 @@ def table_events(allevents, msg=""):
             if prestart or status == 'END' or status == 'STARTEND':
                 hharg += ">{\\arrayrulecolor{black}}-"
             elif status == 'MID' or status == 'START':
-                hharg += ">{\\arrayrulecolor{gray!25}}-"
+                hharg += ">{\\arrayrulecolor{gray!20}}-"
             else:
                 hharg += "~"
         content += "\\\\ \\hhline{%s} \n"%hharg
