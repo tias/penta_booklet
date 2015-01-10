@@ -258,10 +258,12 @@ def table_events(allevents, msg=""):
     # where status one of 'START', 'MID', 'NONE'
     def find_tEvent_hour(tEvents, hour, delta):
         for e in tEvents:
-            if hour-delta < e[0] <= hour:
+            if hour-delta < e[0] <= hour and hour < e[1] <= hour+delta:
+                return ('STARTEND',e)
+            elif hour < e[1] <= hour+delta:
+                return ('END',e)
+            elif hour-delta < e[0] <= hour:
                 return ('START',e)
-            #elif hour < e[1] <= hour+delta:
-            #    return ('END',e)
             elif e[0] < hour < e[1]:
                 return ('MID',e)
         return ('NONE',None)
@@ -275,7 +277,6 @@ def table_events(allevents, msg=""):
             rooms.append(ltalk)
         
 
-    clinesizes = ["0.05pt", "0.7pt", "1pt"]
     content = "\\begin{talktable}{%i}\n"%len(rooms)
 
     # header: room & track
@@ -284,7 +285,7 @@ def table_events(allevents, msg=""):
     content += "\\\\ \n"
     for r in rooms:
         content += " & \HeaderSubtitle{%s}"%r
-    content += "\\\\ \\thickcline{%i}{%i}{%s} \n"%(1,len(rooms)+1, clinesizes[2])
+    content += "\\\\ \\hhline{*{%i}-} \n"%(len(rooms)+1)
 
     # iterate per hour
     curhour  = daystart
@@ -296,29 +297,22 @@ def table_events(allevents, msg=""):
         if True in [strhour.endswith(x) for x in tblocks]:
             xtra = ""
             if strhour.endswith('00'):
-                #content += "\\cellcolor{gray!25}"
                 xtra = "\\bf"
-            #elif strhour.endswith('30'):
-            #    content += "\\cellcolor{gray!15}"
             content += "\\raisebox{-0.33ex}{\\small%s %s}"%(xtra, strhour)
 
-        clineidx = 0
-        if strhour.endswith('25'):
-            clineidx = 1
-        elif strhour.endswith('55'):
-            clineidx = 2
-        clines = "\\thickcline{%i}{%i}{%s} "%(1,1,clinesizes[clineidx])
+        # remove thickness diffs
+        #clineidx = 0
+        #if strhour.endswith('25'):
+        #    clineidx = 1
+        #elif strhour.endswith('55'):
+        #    clineidx = 2
+        #clines = "\\thickcline{%i}{%i}{%s} "%(1,1,clinesizes[clineidx])
+        hharg = ">{\\arrayrulecolor{black}}-"
 
         for i,room in enumerate(rooms):
             content += " & "
             (status,tEv) = find_tEvent_hour(roomTevents[room], curhour, delta)
-            if status == 'NONE':
-                #if strhour.endswith('00'):
-                #    content += "\\cellcolor{gray!25}"
-                #elif strhour.endswith('30'):
-                #    content += "\\cellcolor{gray!15}"
-                pass
-            elif status == 'START':
+            if status == 'END' or status == 'STARTEND':
                 e = tEv[2]
                 msg = e['title']
                 speakers = e['speakers']
@@ -326,7 +320,7 @@ def table_events(allevents, msg=""):
                 linelength = 25
                 if timerows == 1:
                     # restrict and truncate to 1 row
-                    content += "\\truncate{\linewidth}{%s}\n"%msg
+                    content += "\\CellBG\\truncate{\linewidth}{%s}\n"%msg
                 elif timerows == 2:
                     # restrict and truncate to 1 row, but with title styled (=larger)
                     content += "\\CellTalkSingle{%i}{%s}{%s}\n"%\
@@ -368,19 +362,19 @@ def table_events(allevents, msg=""):
                             texcmd += "Compact"
                     content += "\\%s{%i}{%s}{%s}\n"%\
                                (texcmd, timerows, msg, tspeakers)
+            elif status == 'MID' or status == 'START':
+                content += "\\CellBG"
 
-            # draw line under this cell?
-            if status == 'NONE' or \
-               curhour <= tEv[1] <= curhour+delta: # end of slot
-                clineidx = 0
-                if strhour.endswith('25'):
-                    clineidx = 1
-                elif strhour.endswith('55'):
-                    clineidx = 2
-                clines += "\\thickcline{%i}{%i}{%s} "%(i+2,i+2,clinesizes[clineidx])
-        content += "\\\\ "+clines+"%\n"
+            prestart = (find_tEvent_hour(roomTevents[room], curhour+delta, delta)[0] in ['START', 'STARTEND']) # next delta, a talk will start
+            if prestart or status == 'END' or status == 'STARTEND':
+                hharg += ">{\\arrayrulecolor{black}}-"
+            elif status == 'MID' or status == 'START':
+                hharg += ">{\\arrayrulecolor{gray!20}}-"
+            else:
+                hharg += "~"
+        content += "\\\\ \\hhline{%s} \n"%hharg
         curhour += delta
-    content += "\\thickcline{%i}{%i}{%s}"%(1,len(rooms)+1,clinesizes[2])
+    #content += "\\thickcline{%i}{%i}{%s}"%(1,len(rooms)+1,clinesizes[2])
     content += "\\end{talktable}%\n"
 
     return content
