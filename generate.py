@@ -16,6 +16,15 @@ def date2str(date):
 def hrefname(string):
     return string.lower().replace('&','').replace(' ','_')
 
+# from https://github.com/whimboo/mozdownload/commit/f1c524a50265f931c8954d1ea2b10b8fb845ea18
+def total_seconds(td):
+    # Keep backward compatibility with Python 2.6 which doesn't have
+    # this method
+    if hasattr(td, 'total_seconds'):
+        return td.total_seconds()
+    else:
+        return (td.microseconds + (td.seconds + td.days * 24 * 3600) * 10**6) / 10**6
+
 
 def get_xml_events(xmlfile):
     tree = ET.parse(xmlfile)
@@ -106,7 +115,7 @@ def get_event(elem):
 
 def latexify(string):
     # f and b are only approximations to the correct characters
-    return string.encode('ascii', 'xmlcharrefreplace').replace('&#10765;','f').replace('&#1073;','b').replace('&#8212;','\\textemdash{}').replace('&#345;','\\v{r}').replace('&#283;','\\\'{y}').replace('&#263;','\\\'{c}').replace('&#229;','\\r{a}').replace('&#242;','\\`{o}').replace('&#382;','\\v{z}').replace('&#192;','\\`{A}').replace('&#225;','\\`{a}').replace('&#233;','\\\'{e}').replace('&#353;','\\v{s}').replace('&#253;','\\\'{y}').replace('&#246;','\\"{o}').replace('&#228;','\\"{a}').replace('&#235;','\\"{e}').replace('&#201;','\\\'{E}').replace('&#252;','\\"{u}').replace('&#231;','\\c{c}').replace('&#232;','\\`{e}').replace('&#243;','\\\'{o}').replace('&#250;','\\\'{u}').replace('&#239;','\\"{\\i}').replace('&#241;','\\~{n}').replace('&#8217;', '\'').replace('&#8230;', '\\ldots{}').replace('&#251;','\\^{u}').replace('&#259;','\\u{a}').replace('&#248;','\\o{}').replace('&#237;','\\\'{i}').replace('&#352;','\\v{S}').replace('&#223;','{\\ss}').replace('<em>','\\textbf{').replace('</em>','}').replace('<ul>','').replace('</li></ul>','.').replace('</ul>','').replace('<li>','').replace('</li>',';').replace('#','\\#').replace('&','\\&').replace('_','\\_')
+    return string.encode('ascii', 'xmlcharrefreplace').replace('&#10765;','f').replace('&#1073;','b').replace('&#8212;','\\textemdash{}').replace('&#345;','\\v{r}').replace('&#283;','\\\'{y}').replace('&#263;','\\\'{c}').replace('&#229;','\\r{a}').replace('&#242;','\\`{o}').replace('&#269;','\\v{c}').replace('&#382;','\\v{z}').replace('&#192;','\\`{A}').replace('&#225;','\\`{a}').replace('&#233;','\\\'{e}').replace('&#353;','\\v{s}').replace('&#253;','\\\'{y}').replace('&#246;','\\"{o}').replace('&#228;','\\"{a}').replace('&#235;','\\"{e}').replace('&#214;','\\"{O}').replace('&#201;','\\\'{E}').replace('&#252;','\\"{u}').replace('&#231;','\\c{c}').replace('&#232;','\\`{e}').replace('&#243;','\\\'{o}').replace('&#250;','\\\'{u}').replace('&#239;','\\"{\\i}').replace('&#241;','\\~{n}').replace('&#8217;', '\'').replace('&#8230;', '\\ldots{}').replace('&#251;','\\^{u}').replace('&#259;','\\u{a}').replace('&#248;','\\o{}').replace('&#237;','\\\'{i}').replace('&#352;','\\v{S}').replace('&#223;','{\\ss}').replace('<em>','\\textbf{').replace('</em>','}').replace('<ul>','').replace('</li></ul>','.').replace('</ul>','').replace('<li>','').replace('</li>',';').replace('#','\\#').replace('&','\\&').replace('_','\\_')
 
 
 def urlify(string):
@@ -222,6 +231,8 @@ def table_events(allevents, msg=""):
             return 'Configuration mngmt'
         elif name == 'Microkernel-based operating systems':
             return 'Microkernel-based OSs'
+        elif name == 'Network management and SDN':
+            return 'Network mngmt and SDN'
         else:
             return name
 
@@ -307,7 +318,7 @@ def table_events(allevents, msg=""):
                 e = tEv[2]
                 msg = e['title']
                 speakers = e['speakers']
-                timerows = math.ceil((tEv[1] - tEv[0]).total_seconds() / delta.total_seconds())
+                timerows = math.ceil(total_seconds(tEv[1] - tEv[0]) / total_seconds(delta))
                 linelength = 25
                 if timerows == 1:
                     # restrict and truncate to 1 row

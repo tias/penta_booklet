@@ -12,6 +12,7 @@
 }
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
+\usepackage{anyfontsize}
 \renewcommand*\familydefault{\sfdefault}
 
 \def\smaller{\footnotesize\selectfont}
@@ -57,6 +58,8 @@
 \RequirePackage{color}
 \RequirePackage{textcomp}
 \RequirePackage{setspace} % line spacing
+
+\usepackage[us]{datetime} % `us' makes \today behave as usual in TeX/LaTeX
 
 % Pretty chapter title page.
 \def\@part[#1]#2{%

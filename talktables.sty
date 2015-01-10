@@ -27,6 +27,9 @@
 \newcommand{\TalkSpeaker}[1]{%
     {#1}%
 }%
+\newcommand{\TalkSpeakerTrunc}[1]{%
+    {\small \truncate{\linewidth}{\TalkSpeaker{#1}}}%
+}%
 \newcommand{\CellTalk}[3]{%
 	%
     % #1: nr rows
@@ -53,7 +56,7 @@
     \multirow{#1}{\linewidth}{%
      \begin{minipage}{\linewidth}
      \TalkTitle{#2}\\
-     \TalkSpeaker{\truncate{\linewidth}{-- #3}}%
+     \TalkSpeakerTrunc{-- #3}%
      \end{minipage}%
     }%
 }%
@@ -61,7 +64,7 @@
     \multirow{#1}{\linewidth}{%
      \begin{minipage}{\linewidth}
      \TalkTitle{\truncate{\linewidth}{#2}}\\
-     \TalkSpeaker{\truncate{\linewidth}{-- #3}}%
+     \TalkSpeakerTrunc{-- #3}%
      \end{minipage}%
     }%
 }%

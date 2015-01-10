@@ -17,9 +17,8 @@
 \pagestyle{empty}
 \label{cover}
 \begin{center}
-\includegraphics[width=0.5\textwidth]{artwork/cover}
+\includegraphics[width=0.6\textwidth]{artwork/flyer_nobg}
 
-\vfill
 
 {\fontsize{40}{50}\selectfont
 \bf
@@ -42,16 +41,21 @@ page 6-7 & &  Devrooms in U building \\
 
 \vfill
 
-(imagine this booklet being printed on, for example, light blue, while the Sunday booklet on light yellow)
+{\LARGE
+Schedule details and mobile apps on ~\texttt{https://fosdem.org/2015/schedule/}
+}
+
+\vfill
 
 \end{center}
 
+Compiled on {\ddmmyyyydate\today} at \currenttime, source code on \texttt{https://github.com/tias/penta\_booklet}
 
 \loadgeometry{default}
 
 % the tables...
 {% you may have to tweak these numbers to make all tables fit a page
-\fontsize{10}{8.2}\selectfont%
+\fontsize{10}{7.5}\selectfont%
 \renewcommand{\arraystretch}{0.9}%
 %
 \input{gen-tables-sat}%
