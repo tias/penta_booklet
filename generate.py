@@ -258,7 +258,9 @@ def table_events(allevents, msg=""):
     # where status one of 'START', 'MID', 'NONE'
     def find_tEvent_hour(tEvents, hour, delta):
         for e in tEvents:
-            if hour < e[1] <= hour+delta:
+            if hour-delta < e[0] <= hour and hour < e[1] <= hour+delta:
+                return ('STARTEND',e)
+            elif hour < e[1] <= hour+delta:
                 return ('END',e)
             elif hour-delta < e[0] <= hour:
                 return ('START',e)
@@ -305,12 +307,12 @@ def table_events(allevents, msg=""):
         #elif strhour.endswith('55'):
         #    clineidx = 2
         #clines = "\\thickcline{%i}{%i}{%s} "%(1,1,clinesizes[clineidx])
-        hharg = "-"
+        hharg = ">{\\arrayrulecolor{black}}-"
 
         for i,room in enumerate(rooms):
             content += " & "
             (status,tEv) = find_tEvent_hour(roomTevents[room], curhour, delta)
-            if status == 'END':
+            if status == 'END' or status == 'STARTEND':
                 e = tEv[2]
                 msg = e['title']
                 speakers = e['speakers']
@@ -363,9 +365,11 @@ def table_events(allevents, msg=""):
             elif status == 'MID' or status == 'START':
                 content += "\\CellBG"
 
-            prestart = (find_tEvent_hour(roomTevents[room], curhour+delta, delta)[0] == 'START') # next delta, a talk will start
-            if prestart or status == 'END':
-                hharg += "-"
+            prestart = (find_tEvent_hour(roomTevents[room], curhour+delta, delta)[0] in ['START', 'STARTEND']) # next delta, a talk will start
+            if prestart or status == 'END' or status == 'STARTEND':
+                hharg += ">{\\arrayrulecolor{black}}-"
+            elif status == 'MID' or status == 'START':
+                hharg += ">{\\arrayrulecolor{gray!25}}-"
             else:
                 hharg += "~"
         content += "\\\\ \\hhline{%s} \n"%hharg
