@@ -258,14 +258,12 @@ def table_events(allevents, msg=""):
     # where status one of 'START', 'MID', 'NONE'
     def find_tEvent_hour(tEvents, hour, delta):
         for e in tEvents:
-            if hour-delta < e[0] <= hour:
+            if hour < e[1] <= hour+delta:
+                return ('END',e)
+            elif hour-delta < e[0] <= hour:
                 return ('START',e)
             elif e[0] < hour < e[1]:
                 return ('MID',e)
-            elif hour < e[0] <= hour+delta:
-                # can be during end of previous slot, so returning
-                # prestart here is does not allow computing 'END'
-                return ('PRESTART',e)
         return ('NONE',None)
 
     rooms = sorted(roomTevents.keys())
@@ -298,10 +296,7 @@ def table_events(allevents, msg=""):
         if True in [strhour.endswith(x) for x in tblocks]:
             xtra = ""
             if strhour.endswith('00'):
-                #content += "\\cellcolor{gray!25}"
                 xtra = "\\bf"
-            #elif strhour.endswith('30'):
-            #    content += "\\cellcolor{gray!15}"
             content += "\\raisebox{-0.33ex}{\\small%s %s}"%(xtra, strhour)
 
         clineidx = 0
@@ -314,7 +309,7 @@ def table_events(allevents, msg=""):
         for i,room in enumerate(rooms):
             content += " & "
             (status,tEv) = find_tEvent_hour(roomTevents[room], curhour, delta)
-            if status == 'START':
+            if status == 'END':
                 e = tEv[2]
                 msg = e['title']
                 speakers = e['speakers']
@@ -322,7 +317,7 @@ def table_events(allevents, msg=""):
                 linelength = 25
                 if timerows == 1:
                     # restrict and truncate to 1 row
-                    content += "\\truncate{\linewidth}{%s}\n"%msg
+                    content += "\\CellBG\\truncate{\linewidth}{%s}\n"%msg
                 elif timerows == 2:
                     # restrict and truncate to 1 row, but with title styled (=larger)
                     content += "\\CellTalkSingle{%i}{%s}{%s}\n"%\
@@ -364,9 +359,8 @@ def table_events(allevents, msg=""):
                             texcmd += "Compact"
                     content += "\\%s{%i}{%s}{%s}\n"%\
                                (texcmd, timerows, msg, tspeakers)
-
-            if status == 'NONE' or status == 'PRESTART':
-                content += "\\cellcolor{gray!05}"
+            elif status == 'MID' or status == 'START':
+                content += "\\CellBG"
 
             # draw line under this cell?
             if status == 'PRESTART' or \

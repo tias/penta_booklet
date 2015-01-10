@@ -30,13 +30,17 @@
 \newcommand{\TalkSpeakerTrunc}[1]{%
     {\small \truncate{\linewidth}{\TalkSpeaker{#1}}}%
 }%
+\newcommand{\CellBG}{%
+    \cellcolor{gray!25}%
+}%
 \newcommand{\CellTalk}[3]{%
 	%
     % #1: nr rows
 	% #2: Title
 	% #3: Authors
 	%
-    \multirow{#1}{\linewidth}{%
+    \multirow{-#1}{\linewidth}{%
+     \CellBG%
      \begin{minipage}{\linewidth}
      \TalkTitle{#2}\\%
      $ $\\
@@ -45,7 +49,8 @@
     }%
 }%
 \newcommand{\CellTalkCompact}[3]{%
-    \multirow{#1}{\linewidth}{%
+    \multirow{-#1}{\linewidth}{%
+     \CellBG%
      \begin{minipage}{\linewidth}
      \TalkTitle{#2}\\
      \TalkSpeaker{-- #3}%
@@ -53,7 +58,8 @@
     }%
 }%
 \newcommand{\CellTalkTrunk}[3]{%
-    \multirow{#1}{\linewidth}{%
+    \multirow{-#1}{\linewidth}{%
+     \CellBG%
      \begin{minipage}{\linewidth}
      \TalkTitle{#2}\\
      \TalkSpeakerTrunc{-- #3}%
@@ -61,7 +67,8 @@
     }%
 }%
 \newcommand{\CellTalkTrunkTrunk}[3]{%
-    \multirow{#1}{\linewidth}{%
+    \multirow{-#1}{\linewidth}{%
+     \CellBG%
      \begin{minipage}{\linewidth}
      \TalkTitle{\truncate{\linewidth}{#2}}\\
      \TalkSpeakerTrunc{-- #3}%
@@ -69,7 +76,8 @@
     }%
 }%
 \newcommand{\CellTalkSingle}[3]{%
-    \multirow{#1}{\linewidth}{%
+    \multirow{-#1}{\linewidth}{%
+     \CellBG%
      \TalkTitle{\truncate{\linewidth}{#2}}%
     }%
 }%
