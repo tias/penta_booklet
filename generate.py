@@ -37,7 +37,16 @@ def get_xml_events(xmlfile):
         elif x.tag == 'day':
             events += get_day_events(x)
 
-    return events
+    emptyrooms = []
+    for x in list(root):
+        if x.tag == 'day':
+            day = date2str(x.attrib['date'])
+            for y in x:
+                if y.tag == 'room' and len(y) == 0:
+                    room = y.attrib['name']
+                    emptyrooms.append( (day,room) )
+
+    return (events,emptyrooms)
 
 def get_day_events(elem):
     if len(elem) == 0:
@@ -156,7 +165,7 @@ def get_hash(fname, hashtag):
     return ""
     
 
-def generate_tables(events):
+def generate_tables(events,emptyrooms=[]):
     day_groups = defaultdict(list)
     for e in events:
         day_groups[e['day']].append(e)
@@ -172,6 +181,8 @@ def generate_tables(events):
 
         # hack: all rooms except if only certification there
         rooms = set([e['room'] for e in day_events if e['track'] != 'Certification'])
+        # plus empty ones, with hardcoded exceptions
+        rooms |= set([room for (day,room) in emptyrooms if day == day_name and (room != "H.3227") ])
 
         # first page: main tracks and ltalks,
         #             in: Janson, K.1.105 and H.2215
@@ -186,7 +197,7 @@ def generate_tables(events):
                 
             # create subfile
             subcontent = "\\pagebreak"
-            subcontent += table_events(subroom_events, get_shortday(day_name))
+            subcontent += table_events(room_slice, subroom_events, get_shortday(day_name))
             subfile = get_texname("tableify_events_%s_%i"%
                                         (get_shortday(day_name),i) )
             write_tex(subcontent, subfile)
@@ -204,7 +215,7 @@ def truncate(msg, length):
     pos = msg.rfind(' ', 0, int(length))
     return "%s\\dots"%msg[0:pos]
 
-def table_events(allevents, msg=""):
+def table_events(rooms, allevents, msg=""):
     t = lambda s: datetime.datetime.strptime(s, '%H:%M')
 
     def roomhack(name):
@@ -268,7 +279,12 @@ def table_events(allevents, msg=""):
                 return ('MID',e)
         return ('NONE',None)
 
-    rooms = sorted(roomTevents.keys())
+    #rooms = sorted(roomTevents.keys())
+    rooms = sorted([roomhack(r) for r in rooms])
+    # handle empty rooms
+    for r in rooms:
+        if not r in roomTitle:
+            roomTitle[r] = ''
     # hack: main tracks fixed order
     if 'Main tracks' in roomTitle.values():
         # wanted: J.Janson, K.1.105, H.2215
@@ -390,9 +406,9 @@ if __name__ == "__main__":
     else:
     	xmlfile = sys.argv[1]
 
-    events = get_xml_events(xmlfile)
+    (events,emptyrooms) = get_xml_events(xmlfile)
 
     # write out generated tables in subfiles
-    generate_tables(events)
+    generate_tables(events,emptyrooms=emptyrooms)
 
     print "Done, everything up-to-date."
