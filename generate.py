@@ -244,6 +244,10 @@ def table_events(rooms, allevents, msg=""):
             return 'Microkernel-based OSs'
         elif name == 'Network management and SDN':
             return 'Network mngmt and SDN'
+        elif name == 'Electronic design automation':
+            return 'Electronic design autom.'
+        elif name == 'Infrastructure as a service':
+            return 'Infrastruct. as a service'
         else:
             return name
 
