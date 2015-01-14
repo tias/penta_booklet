@@ -7,7 +7,7 @@ tex:
 	pdflatex booklet_sat && pdflatex booklet_sun
 
 booklet:
-	pdfbook --suffix 'print' booklet_sat.pdf && pdfbook --suffix 'print' booklet_sun.pdf
+	pdfbook --booklet 'true' --suffix 'print' booklet_sat.pdf && pdfbook --booklet 'true' --suffix 'print' booklet_sun.pdf
 
 clean:
 	rm -f *.aux *.log *.out
