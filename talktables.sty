@@ -27,7 +27,7 @@
     {#1}%
 }%
 \newcommand{\TalkSpeaker}[1]{%
-    {\small #1}%
+    \ifx\hfuzz#1\hfuzz\else{\small-- #1}\fi%
 }%
 \newcommand{\TalkSpeakerTrunc}[1]{%
     {\truncate{\linewidth}{\TalkSpeaker{#1}}}%
@@ -45,8 +45,10 @@
      \CellBG%
      \begin{minipage}{\linewidth}
      \TalkTitle{#2}\\%
-     $ $\\
-     \TalkSpeaker{-- #3}%
+     \ifx\hfuzz#3\hfuzz\else%
+      $ $\\
+      \TalkSpeaker{#3}%
+     \fi
      \end{minipage}%
     }%
 }%
@@ -55,7 +57,7 @@
      \CellBG%
      \begin{minipage}{\linewidth}
      \TalkTitle{#2}\\
-     \TalkSpeaker{-- #3}%
+     \TalkSpeaker{#3}%
      \end{minipage}%
     }%
 }%
@@ -64,7 +66,7 @@
      \CellBG%
      \begin{minipage}{\linewidth}
      \TalkTitle{#2}\\
-     \TalkSpeakerTrunc{-- #3}%
+     \TalkSpeakerTrunc{#3}%
      \end{minipage}%
     }%
 }%
@@ -73,7 +75,7 @@
      \CellBG%
      \begin{minipage}{\linewidth}
      \TalkTitle{\truncate{\linewidth}{#2}}\\
-     \TalkSpeakerTrunc{-- #3}%
+     \TalkSpeakerTrunc{#3}%
      \end{minipage}%
     }%
 }%
