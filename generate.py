@@ -330,9 +330,11 @@ def table_events(rooms, allevents, msg=""):
                 linelength = 32*4/len(rooms)
                 # The horror, manual hacks...
                 if msg.startswith('Xvisor'):
-                    linelength = 28
+                    linelength = 28*4/len(rooms)
                 if msg.startswith('Caciocavallo'):
-                    linelength = 30
+                    linelength = 30*4/len(rooms)
+                if msg.startswith('Taking Web GIS'):
+                    linelength = 30*4/len(rooms)
 
                 if timerows == 1:
                     # restrict and truncate to 1 row
