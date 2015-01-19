@@ -236,18 +236,8 @@ def table_events(rooms, allevents, msg=""):
 
     def titlehack(name):
         # for rooms with a too long name
-        if name == 'HPC and computational science':
-            return 'HPC and comp. science'
-        elif name == 'Configuration management':
-            return 'Configuration mngmt'
-        elif name == 'Microkernel-based operating systems':
-            return 'Microkernel-based OSs'
-        elif name == 'Network management and SDN':
-            return 'Network mngmt and SDN'
-        elif name == 'Electronic design automation':
-            return 'Electronic design autom.'
-        elif name == 'Infrastructure as a service':
-            return 'Infrastruct. as a service'
+        if name == 'Network management and SDN':
+            return 'Network managmt and SDN'
         else:
             return name
 
