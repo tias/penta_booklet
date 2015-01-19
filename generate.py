@@ -337,7 +337,7 @@ def table_events(rooms, allevents, msg=""):
                 msg = e['title']
                 speakers = e['speakers']
                 timerows = math.ceil(total_seconds(tEv[1] - tEv[0]) / total_seconds(delta))
-                linelength = 25
+                linelength = 25*4/len(rooms)
                 if timerows == 1:
                     # restrict and truncate to 1 row
                     content += "\\CellBG\\truncate{\linewidth}{%s}\n"%msg
@@ -345,41 +345,54 @@ def table_events(rooms, allevents, msg=""):
                     # restrict and truncate to 1 row, but with title styled (=larger)
                     content += "\\CellTalkSingle{%i}{%s}{%s}\n"%\
                                  (timerows, msg, "")
-                elif timerows == 3 or timerows == 4:
-                    tspeakers = ", ".join(speakers)
-                    texcmd = "CellTalk"
-                    if len(msg) <= linelength:
-                        # case 1: title (fits 1 line) + author 1 line
-                        texcmd += "Trunk"
-                    else:
-                        # 2 lines of text, author inline if enough space
-                        texcmd += "TrunkTrunk"
-                        #restchars = (linelength*2) - len(msg)
-                        #if restchars < 12:
-                        #    # inline author
-                        #    minipage += larger(truncate(msg, linelength*2))
-                    content += "\\%s{%i}{%s}{%s}\n"%\
-                               (texcmd, timerows, msg, tspeakers)
-
                 else:
                     tspeakers = ", ".join(speakers)
                     texcmd = "CellTalk"
-                    linesleft = math.ceil(timerows/2)
+                    lines = math.ceil(timerows/2)
+                    print msg,
+                    print "lines: %f"%lines,
 
-                    if (1.0*len(msg)/linelength) > (linesleft-1): #-1 for author
-                        # message too long, truncate it
-                        msg = truncate(msg, linelength*(linesleft-1))
-                    linesleft -= math.ceil(1.0*len(msg)/linelength)
-
-                    if linesleft <= 1:
-                        texcmd += "Trunk"
-                    else:
-                        tspeakers = truncate(", ".join(speakers),
-                                             (linelength*(linesleft-1))-4) # minus ' -
-                        linesleft -= math.ceil(len(tspeakers)/linelength)
-
-                        if linesleft <= 1:
+                    if (len(msg) <= linelength*(lines-1)): # -1 for authors
+                        # case 1: title fits
+                        linesmsg = math.ceil(1.0*len(msg)/linelength)
+                        linesspkr = math.ceil(0.8*len(tspeakers)/linelength)
+                        print "msg: %f, sprk: %f"%(linesmsg,linesspkr),
+                        if linesmsg + linesspkr < lines:
+                            print "Ample"
+                            # case 1.1: ample space
+                            pass
+                        elif linesmsg + linesspkr == lines:
+                            # case 1.2: just, fewer space between title/author
+                            # TODO: sometimes text on border
+                            print "Compact"
                             texcmd += "Compact"
+                        else:
+                            # case 1.2: too few, trunc authors
+                            linesleft = lines - linesmsg
+                            print "linesleft: %f"%linesleft,
+                            if linesleft == 1:
+                                # case 1.2.1: one line of author, use truncate{}
+                                print "AuthorTrunk"
+                                texcmd += "Trunk"
+                            else:
+                                # case 1.2.1: multiple lines, manual trucate
+                                print "AuthorTrunk, manual"
+                                texcmd += "Compact"
+                                lines = lines
+                                tspeakers = truncate(tspeakers,
+                                             (linelength*(linesleft)-4)) # minus ' --
+                    else:
+                        # case 2: title doesn't fit
+                        if lines == 2:
+                            # case 2.1 one line title, one line author
+                            print "MsgTrunk + AuthorTrunk"
+                            texcmd += "TrunkTrunk"
+                        else:
+                            # case 2.2 multi-line title, one line author
+                            print "MsgTrunk (manual) + AuthorTrunk"
+                            msg = truncate(msg, linelength*(lines-1))
+                            texcmd += "Trunk"
+
                     content += "\\%s{%i}{%s}{%s}\n"%\
                                (texcmd, timerows, msg, tspeakers)
             elif status == 'MID' or status == 'START':
