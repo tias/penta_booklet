@@ -327,7 +327,13 @@ def table_events(rooms, allevents, msg=""):
                 msg = e['title']
                 speakers = e['speakers']
                 timerows = math.ceil(total_seconds(tEv[1] - tEv[0]) / total_seconds(delta))
-                linelength = 25*4/len(rooms)
+                linelength = 32*4/len(rooms)
+                # The horror, manual hacks...
+                if msg.startswith('Xvisor'):
+                    linelength = 28
+                if msg.startswith('Caciocavallo'):
+                    linelength = 30
+
                 if timerows == 1:
                     # restrict and truncate to 1 row
                     content += "\\CellBG\\truncate{\linewidth}{%s}\n"%msg

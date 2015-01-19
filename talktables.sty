@@ -24,13 +24,13 @@
     \multicolumn{1}{c}{#1}%
 }%
 \newcommand{\TalkTitle}[1]{%
-    {\large #1}%
-}%
-\newcommand{\TalkSpeaker}[1]{%
     {#1}%
 }%
+\newcommand{\TalkSpeaker}[1]{%
+    {\small #1}%
+}%
 \newcommand{\TalkSpeakerTrunc}[1]{%
-    {\small \truncate{\linewidth}{\TalkSpeaker{#1}}}%
+    {\truncate{\linewidth}{\TalkSpeaker{#1}}}%
 }%
 \newcommand{\CellBG}{%
     \cellcolor{gray!20}%
@@ -55,7 +55,7 @@
      \CellBG%
      \begin{minipage}{\linewidth}
      \TalkTitle{#2}\\
-     \TalkSpeaker{\small -- #3}%
+     \TalkSpeaker{-- #3}%
      \end{minipage}%
     }%
 }%
