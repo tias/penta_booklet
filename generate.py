@@ -259,6 +259,8 @@ def table_events(rooms, allevents, msg=""):
     daystart = min( [f_roomstart(tEvents) for tEvents in roomTevents.values()] )
     daystop  = max( [f_roomstop(tEvents)  for tEvents in roomTevents.values()] )
 
+    print daystart, daystop
+
     # returns (status, event)
     # where status one of 'START', 'MID', 'NONE'
     def find_tEvent_hour(tEvents, hour, delta):
@@ -298,9 +300,11 @@ def table_events(rooms, allevents, msg=""):
     content += "\\\\ \\hhline{*{%i}-} \n"%(len(rooms)+1)
 
     # iterate per hour
-    curhour  = daystart
     delta    = datetime.timedelta(minutes=5)
     tblocks  = ['00', '15', '30', '45']
+    curhour  = daystart
+    while not curhour.strftime('%M') in tblocks:
+        curhour -= delta
     while (curhour < daystop):
         # print time (in blocks)
         strhour = curhour.strftime('%H:%M')
