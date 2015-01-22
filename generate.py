@@ -391,6 +391,10 @@ def table_events(rooms, allevents, msg=""):
                             chars -= 7+len(tspeakers)*0.7
                             if len(msg) >= chars:
                                 print "Inline Author, MsgTrunk", debug
+                                 #HACKEDYHACK, manual exceptions
+                                if "MetaCPAN" in msg or\
+                                   msg.startswith('Interactive routing algo'):
+                                    chars -= 5
                                 msg = truncate(msg, chars)
                             texcmd += "Inline"
                         elif lines == 2:
