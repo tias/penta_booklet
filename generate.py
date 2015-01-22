@@ -382,8 +382,8 @@ def table_events(rooms, allevents, msg=""):
                                 print "AuthorTrunk", debug
                                 texcmd += "AuthorTrunk"
                             else:
-                                # case 1.2.1: multiple lines, manual trucate
-                                print "AuthorTrunk, manual", debug
+                                # case 1.2.1: multiple lines, compute trucate
+                                print "AuthorTrunk (python)", debug
                                 texcmd += "Compact"
                                 lines = lines
                                 tspeakers = truncate(tspeakers,
@@ -396,7 +396,7 @@ def table_events(rooms, allevents, msg=""):
                             chars = lines*linelength
                             chars -= 7+len(tspeakers)*0.7
                             if len(msg) >= chars:
-                                print "Inline Author, MsgTrunk", debug
+                                print "Inline Author, MsgTrunk (python)", debug
                                  #HACKEDYHACK, manual exceptions
                                 if "MetaCPAN" in msg or\
                                    msg.startswith('Interactive routing algo'):
@@ -416,11 +416,11 @@ def table_events(rooms, allevents, msg=""):
                             msg = truncate(msg, linelength*(lines-1))
                             if linesspkr == 1:
                                 # case 2.3.2 multi-line title, one line author
-                                print "MsgTrunk (manual)", debug
+                                print "MsgTrunk (python)", debug
                                 texcmd += "Compact"
                             else:
                                 # case 2.3.2 multi-line title, one line author
-                                print "MsgTrunk (manual) + AuthorTrunk", debug
+                                print "MsgTrunk (python) + AuthorTrunk", debug
                                 texcmd += "AuthorTrunk"
 
                     content += "\\%s{%i}{%s}{%s}\n"%\
