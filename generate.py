@@ -203,7 +203,13 @@ def generate_tables(events,emptyrooms=[]):
             write_tex(subcontent, subfile)
 
             # include subfile
-            content += "\\input{%s}\n"%subfile
+            if get_shortday(day_name) == 'sat' and i == 0:
+                # manual hack, first page bit smaller
+                content += "{\\fontsize{9.8}{7.2}\selectfont"+\
+                            "\\renewcommand{\\arraystretch}{0.88}"+\
+                            "\\input{%s}}\n"%subfile
+            else:
+                content += "\\input{%s}\n"%subfile
 
         write_tex(content, fname)
 
