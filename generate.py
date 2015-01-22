@@ -259,8 +259,6 @@ def table_events(rooms, allevents, msg=""):
     daystart = min( [f_roomstart(tEvents) for tEvents in roomTevents.values()] )
     daystop  = max( [f_roomstop(tEvents)  for tEvents in roomTevents.values()] )
 
-    print daystart, daystop
-
     # returns (status, event)
     # where status one of 'START', 'MID', 'NONE'
     def find_tEvent_hour(tEvents, hour, delta):
