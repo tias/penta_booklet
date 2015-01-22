@@ -61,12 +61,21 @@
      \end{minipage}%
     }%
 }%
-\newcommand{\CellTalkTrunk}[3]{%
+\newcommand{\CellTalkAuthorTrunk}[3]{%
     \multirow{-#1}{\linewidth}{%
      \CellBG%
      \begin{minipage}{\linewidth}
      \TalkTitle{#2}\vspace*{0.15em}\\
      \TalkSpeakerTrunc{#3}%
+     \end{minipage}%
+    }%
+}%
+\newcommand{\CellTalkMsgTrunk}[3]{%
+    \multirow{-#1}{\linewidth}{%
+     \CellBG%
+     \begin{minipage}{\linewidth}
+     \TalkTitle{\truncate{\linewidth}{#2}}\vspace*{0.15em}\\
+     \TalkSpeaker{#3}%
      \end{minipage}%
     }%
 }%
@@ -76,6 +85,14 @@
      \begin{minipage}{\linewidth}
      \TalkTitle{\truncate{\linewidth}{#2}}\vspace*{0.15em}\\
      \TalkSpeakerTrunc{#3}%
+     \end{minipage}%
+    }%
+}%
+\newcommand{\CellTalkInline}[3]{%
+    \multirow{-#1}{\linewidth}{%
+     \CellBG%
+     \begin{minipage}{\linewidth}
+     \TalkTitle{#2}\quad\TalkSpeaker{#3}%
      \end{minipage}%
     }%
 }%

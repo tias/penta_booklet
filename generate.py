@@ -351,49 +351,69 @@ def table_events(rooms, allevents, msg=""):
                     tspeakers = ", ".join(speakers)
                     texcmd = "CellTalk"
                     lines = math.ceil(timerows/2)
-                    print msg,
-                    print "lines: %f"%lines,
+                    linesmsg = math.ceil(1.0*len(msg)/linelength)
+                    linesspkr = math.ceil(0.8*len(tspeakers)/linelength)
+
+                    debug = msg
+                    debug += " lines: %f"%lines
+                    debug += " msg: %f, sprk: %f"%(linesmsg,linesspkr)
 
                     if (len(msg) <= linelength*(lines-1)): # -1 for authors
                         # case 1: title fits
-                        linesmsg = math.ceil(1.0*len(msg)/linelength)
-                        linesspkr = math.ceil(0.8*len(tspeakers)/linelength)
-                        print "msg: %f, sprk: %f"%(linesmsg,linesspkr),
                         if linesmsg + linesspkr < lines:
-                            print "Ample"
                             # case 1.1: ample space
+                            #print "Ample", debug
                             pass
                         elif linesmsg + linesspkr == lines:
                             # case 1.2: just, fewer space between title/author
                             # TODO: sometimes text on border
-                            print "Compact"
+                            #print "Compact", debug
                             texcmd += "Compact"
                         else:
                             # case 1.2: too few, trunc authors
                             linesleft = lines - linesmsg
-                            print "linesleft: %f"%linesleft,
+                            debug += " linesleft: %f"%linesleft
                             if linesleft == 1:
                                 # case 1.2.1: one line of author, use truncate{}
-                                print "AuthorTrunk"
-                                texcmd += "Trunk"
+                                print "AuthorTrunk", debug
+                                texcmd += "AuthorTrunk"
                             else:
                                 # case 1.2.1: multiple lines, manual trucate
-                                print "AuthorTrunk, manual"
+                                print "AuthorTrunk, manual", debug
                                 texcmd += "Compact"
                                 lines = lines
                                 tspeakers = truncate(tspeakers,
                                              (linelength*(linesleft)-4)) # minus ' --
                     else:
                         # case 2: title doesn't fit
-                        if lines == 2:
-                            # case 2.1 one line title, one line author
-                            print "MsgTrunk + AuthorTrunk"
-                            texcmd += "TrunkTrunk"
+                        if len(tspeakers) <= linelength*0.7:
+                            # case 2.1 make author inline
+                            # estimate title truncation...
+                            chars = lines*linelength
+                            chars -= 7+len(tspeakers)*0.7
+                            if len(msg) >= chars:
+                                print "Inline Author, MsgTrunk", debug
+                                msg = truncate(msg, chars)
+                            texcmd += "Inline"
+                        elif lines == 2:
+                            if linesspkr == 1:
+                                # case 2.2.1 one line title, one line author
+                                print "MsgTrunk", debug
+                                texcmd += "MsgTrunk"
+                            else:
+                                # case 2.2.2 one line title, one line author
+                                print "MsgTrunk + AuthorTrunk", debug
+                                texcmd += "TrunkTrunk"
                         else:
-                            # case 2.2 multi-line title, one line author
-                            print "MsgTrunk (manual) + AuthorTrunk"
                             msg = truncate(msg, linelength*(lines-1))
-                            texcmd += "Trunk"
+                            if linesspkr == 1:
+                                # case 2.3.2 multi-line title, one line author
+                                print "MsgTrunk (manual)", debug
+                                texcmd += "Compact"
+                            else:
+                                # case 2.3.2 multi-line title, one line author
+                                print "MsgTrunk (manual) + AuthorTrunk", debug
+                                texcmd += "AuthorTrunk"
 
                     content += "\\%s{%i}{%s}{%s}\n"%\
                                (texcmd, timerows, msg, tspeakers)
