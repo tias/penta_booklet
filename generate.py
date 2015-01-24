@@ -243,7 +243,7 @@ def table_events(rooms, allevents, msg=""):
     def titlehack(name):
         # for rooms with a too long name
         if name == 'Network management and SDN':
-            return 'Network managmt and SDN'
+            return 'Network management \& SDN'
         else:
             return name
 
