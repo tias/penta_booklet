@@ -335,7 +335,7 @@ def table_events(rooms, allevents, msg=""):
                 msg = e['title']
                 speakers = e['speakers']
                 timerows = math.ceil(total_seconds(tEv[1] - tEv[0]) / total_seconds(delta))
-                linelength = 32*4/len(rooms)
+                linelength = 45*4/len(rooms)
                 # The horror, manual hacks...
                 if msg.startswith('Xvisor'):
                     linelength = 28*4/len(rooms)
@@ -444,6 +444,10 @@ def table_events(rooms, allevents, msg=""):
 
 
 if __name__ == "__main__":
+
+    print "MANUAL Version, no regeneration possible"
+    sys.exit(1)
+
     xmlfile = 'xml'
 
     if len(sys.argv) == 1:
