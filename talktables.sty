@@ -96,6 +96,12 @@
      \end{minipage}%
     }%
 }%
+\newcommand{\CellTalkSingleSmall}[3]{%
+    \multirow{-#1}{\linewidth}{%
+     \CellBG%
+     \TalkTitle{\truncate{\linewidth}{\small#2}}%
+    }%
+}%
 \newcommand{\CellTalkSingle}[3]{%
     \multirow{-#1}{\linewidth}{%
      \CellBG%
