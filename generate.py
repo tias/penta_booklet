@@ -343,6 +343,10 @@ def table_events(rooms, allevents, msg=""):
                     linelength = 30*4/len(rooms)
                 if msg.startswith('Taking Web GIS'):
                     linelength = 30*4/len(rooms)
+                if msg.startswith('Copyleft in Europe:'):
+                    linelength = 31*4/len(rooms)
+                if msg.startswith('Superturbocharging'):
+                    linelength = 31*4/len(rooms)
 
                 if timerows == 1:
                     # restrict and truncate to 1 row
