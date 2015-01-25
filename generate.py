@@ -346,7 +346,8 @@ def table_events(rooms, allevents, msg=""):
 
                 if timerows == 1:
                     # restrict and truncate to 1 row
-                    content += "\\CellBG\\truncate{\linewidth}{%s}\n"%msg
+                    content += "\\CellTalkSingleSmall{%i}{%s}{%s}\n"%\
+                                 (timerows, msg, "")
                 elif timerows == 2:
                     # restrict and truncate to 1 row, but with title styled (=larger)
                     content += "\\CellTalkSingle{%i}{%s}{%s}\n"%\
