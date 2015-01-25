@@ -27,7 +27,7 @@
     {#1}%
 }%
 \newcommand{\TalkSpeaker}[1]{%
-    \ifx\hfuzz#1\hfuzz\else{\small#1}\fi%
+    \ifx\hfuzz#1\hfuzz\else{\small #1}\fi%
 }%
 \newcommand{\TalkSpeakerTrunc}[1]{%
     {\truncate{\linewidth}{\TalkSpeaker{#1}}}%
@@ -92,7 +92,7 @@
     \multirow{-#1}{\linewidth}{%
      \CellBG%
      \begin{minipage}{\linewidth}
-     \TalkTitle{#2}\quad\TalkSpeaker{#3}%
+     \TalkTitle{#2}\quad\TalkSpeaker{-- #3}%
      \end{minipage}%
     }%
 }%
