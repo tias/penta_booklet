@@ -48,6 +48,14 @@
 \setcounter{secnumdepth}{0}
 \setcounter{tocdepth}{1}
 
+% Fancy footer
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{}
+\rfoot{\centering Page \thepage~of \pageref{LastPage}}
+
 \RequirePackage{calc}
 \RequirePackage{multicol}
 \RequirePackage[absolute]{textpos}
