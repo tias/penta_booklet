@@ -445,9 +445,6 @@ def table_events(rooms, allevents, msg=""):
 
 if __name__ == "__main__":
 
-    print "MANUAL Version, no regeneration possible"
-    sys.exit(1)
-
     xmlfile = 'xml'
 
     if len(sys.argv) == 1:
