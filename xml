@@ -3578,7 +3578,7 @@ In other words, Valgrind cannot make use of multi-core CPUs when running a multi
       </event>
       <event id="3416">
         <start>17:00</start>
-        <duration>01:00</duration>
+        <duration>02:00</duration>
         <room>AW1.120</room>
         <slug>valgrind_hackaton</slug>
         <title>Valgrind Hackaton</title>
