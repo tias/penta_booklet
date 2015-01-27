@@ -382,6 +382,7 @@ how this is relevant for the complete free software eco system and how you can c
 &lt;p&gt;see https://wiki.debian.org/ReproducibleBuilds and https://reproducible.debian.net&lt;/p&gt;</description>
         <persons>
           <person id="70">Holger Levsen</person>
+          <person id="1998">Jérémy Bobbio (Lunar)</person>
         </persons>
         <links>
           <link href="https://wiki.debian.org/ReproducibleBuilds">about Reproducible Builds of Debian</link>
@@ -673,24 +674,24 @@ https://github.com/rwth-acis/RequirementsBazaar-WebFrontend&lt;/p&gt;
         <duration>00:15</duration>
         <room>H.2215 (Ferrer)</room>
         <slug>yatta</slug>
-        <title>Yatta: A Real-Time Framework for Peer-to-peer Group Editing on Arbitrary Data Types</title>
+        <title>yjs: A Real-Time Framework for Peer-to-peer Group Editing on Arbitrary Data Types</title>
         <subtitle>Enabling real-time collaboration on the Web</subtitle>
         <track>Lightning talks</track>
         <type>lightningtalk</type>
         <language/>
-        <abstract>&lt;p&gt;Yatta is an open source framework that can be used to collaborate in real-time on arbitrary data types. It is based on a new operational transformation-like approach that can be used in peer-to-peer settings on the Web, using standard communication protocols such as WebRTC or XMPP. Part of the shared editing projects family (e.g. ShareJs, OpenCoweb, etc.), Yatta currently implements support for text, XML and JSON and proved to be very fast and reliable.
-In this lightning talk we introduce the concepts and features of the Yatta framework and discuss how it can be leveraged to design the next generation of peer-to-peer shared editing tools. We conclude the talk with a short demo that highlights the capabilities of the framework.&lt;/p&gt;</abstract>
-        <description>&lt;p&gt;Yatta solves many of the current issues for concurrency control and consistency maintenance approaches in collaborative software. In order to achieve this, we created a new approach for optimistic concurrency control, which was formally proven to be reliable and to output the best time complexity (compared to existing dedicated related literature). The approach was designed to support real-time shared editing on linear, tree and graph data structures. A short part of this lightning talk aims to present the core concepts of our approach.&lt;/p&gt;
+        <abstract>&lt;p&gt;yjs is an open source framework that can be used to collaborate in real-time on arbitrary data types. It is based on a new operational transformation-like approach that can be used in peer-to-peer settings on the Web, using standard communication protocols such as WebRTC or XMPP. Part of the shared editing projects family (e.g. ShareJs, OpenCoweb, etc.), yjs currently implements support for text, XML and JSON and proved to be very fast and reliable.
+In this lightning talk we introduce the concepts and features of the yjs framework and discuss how it can be leveraged to design the next generation of peer-to-peer shared editing tools. We conclude the talk with a short demo that highlights the capabilities of the framework.&lt;/p&gt;</abstract>
+        <description>&lt;p&gt;yjs solves many of the current issues for concurrency control and consistency maintenance approaches in collaborative software. In order to achieve this, we created a new approach for optimistic concurrency control, which was formally proven to be reliable and to output the best time complexity (compared to existing dedicated related literature). The approach was designed to support real-time shared editing on linear, tree and graph data structures. A short part of this lightning talk aims to present the core concepts of our approach.&lt;/p&gt;
 
-&lt;p&gt;Designed to work on both peer-to-peer and client-server architectures, Yatta can be easily embedded in Web applications in order to foster collaboration. Developed in Javascript, the framework outputs very good scaling capabilities in the number of users and operations in test environments. Yatta currently supports text, JSON and XML data types and was tested using WebRTC and XMPP as an underlying communication protocol.&lt;/p&gt;
+&lt;p&gt;Designed to work on both peer-to-peer and client-server architectures, yjs can be easily embedded in Web applications in order to foster collaboration. Developed in Javascript, the framework outputs very good scaling capabilities in the number of users and operations in test environments. yjs currently supports text, JSON and XML data types and was tested using WebRTC and XMPP as an underlying communication protocol.&lt;/p&gt;
 
-&lt;p&gt;In this lightning talk, the Yatta framework will be presented to the wider OS community for the first time. We consider our framework to be developer friendly, but given the opportunity of a lightning talk, we would like to invite FOSDEM developers to use Yatta and share with us their experience. Ideally we aim to establish connections and potential collaborations, in order to improve our open source project.&lt;/p&gt;</description>
+&lt;p&gt;In this lightning talk, the yjs framework will be presented to the wider OS community for the first time. We consider our framework to be developer friendly, but given the opportunity of a lightning talk, we would like to invite FOSDEM developers to use yjs and share with us their experience. Ideally we aim to establish connections and potential collaborations, in order to improve our open source project.&lt;/p&gt;</description>
         <persons>
           <person id="2623">Petru Nicolaescu</person>
           <person id="2971">Kevin Jahns</person>
         </persons>
         <links>
-          <link href="https://github.com/rwth-acis/Yatta">Yatta Framework</link>
+          <link href="https://github.com/rwth-acis/yjs">yjs Framework</link>
         </links>
       </event>
       <event id="2784">
@@ -7911,20 +7912,28 @@ The second part is about some of SDCC's unusual optimizations currently not foun
           <link href="http://sdcc.sourceforge.net/">SDCC website</link>
         </links>
       </event>
-      <event id="3119">
+      <event id="3105">
         <start>11:30</start>
         <duration>00:25</duration>
         <room>UB2.252A (Lameere)</room>
-        <slug>mediamanage</slug>
-        <title>An update on the GENIVI Media Manager</title>
-        <subtitle/>
+        <slug>uc_qtcreator</slug>
+        <title>Update on QtCreator for µC</title>
+        <subtitle>On the way to the best C/C++ embedded IDE.</subtitle>
         <track>Embedded</track>
         <type>devroom</type>
         <language/>
-        <abstract>&lt;p&gt;I'll give an update on the GENIVI Media Manager project, both as a member of the working group specifying its interfaces and functionality and as a developer on the project. The media manager is a joint project of the Automotive Grade Linux and GENIVI, set out to define a common set of APIs for playing and managing media in a car.&lt;/p&gt;</abstract>
-        <description>&lt;p&gt;The concepts behind the media manager will be presented, and an overview of the architecture of the media manager proof-of-concept implementation will be given.&lt;/p&gt;</description>
+        <abstract>&lt;p&gt;This is an update on the first talk about QtCreator for embedded devices.
+There will be an short overview and then the presentation of the improvements from the last year:&lt;/p&gt;</abstract>
+        <description>&lt;p&gt;QtCreator is the IDE of the Qt-Project. While the main focus is C++ based Qt development it has all usefull features for editing and navigation through
+large codebases. Like a code model for refactoring and autocompletion. As a lot of embedded development is done in C/C++ the only part missing for small µController support has been filled by the baremetal plugin for QtCreator. This enables QtCreator to talk to hardware debuggers with support for the gdb protocol.
+OpenOCD is a main development focus and it has now gained support for pipelining mode.&lt;/p&gt;
+
+&lt;p&gt;Besides giving an short overview over QtCreator the improvments made for embedded development will be shown.
+&lt;em&gt;Fast Restart - issues a hardware reset right away without reflashing
+&lt;/em&gt;OpenOCD pipelining support - one click debugging
+*CMake build support (hopefully)&lt;/p&gt;</description>
         <persons>
-          <person id="2189">Jonatan Palsson</person>
+          <person id="2040">Tim Sander</person>
         </persons>
         <links>
         </links>
@@ -11477,10 +11486,8 @@ each source, which hence also requires recovering the carrier to account for rel
         <track>Open source design</track>
         <type>devroom</type>
         <language/>
-        <abstract>&lt;p&gt;Now more than ever, users clamor for software that respects their privacy and protects their security. Free software's natural advantage is that it's almost always the best option to safeguard users in a world where proprietary software so often betrays them. Users want options and we know developers want to provide them, so what are we missing?  Two free software activists, one developer and one community liaison, take turns asking each other questions about their experiences and goals.  All the questions about intent, process, and getting user feedback that you've been wondering about will finally be answered.&lt;/p&gt;</abstract>
-        <description>&lt;p&gt;Now more than ever, users clamor for software that respects their privacy and protects their security. Free software's natural advantage is that it's almost always the best option to safeguard users in a world where proprietary software so often betrays them. Users want options and we know developers want to provide them, so what are we missing?&lt;/p&gt;
-
-&lt;p&gt;When an alternative to a proprietary system becomes available, people don't seem to stick with it. Users arrive and things break, features that seem basic are missing, and the channels through which they might ask for help are hard to find or non-existent. They're wondering, "Who did you build this for? Why is it so annoying to use?" Meanwhile, developers put their time and energy into building technology to free their users and are left wondering, "Why aren't people just using this? It's not &lt;em&gt;really&lt;/em&gt; that hard to figure out."&lt;/p&gt;
+        <abstract>&lt;p&gt;Now more than ever, users clamor for software that respects their privacy and protects their security. Free software's natural advantage is that it's almost always the best option to safeguard users in a world where proprietary software so often betrays them. Users want options and we know developers want to provide them, so what are we missing?&lt;/p&gt;</abstract>
+        <description>&lt;p&gt;When an alternative to a proprietary system becomes available, people don't seem to stick with it. Users arrive and things break, features that seem basic are missing, and the channels through which they might ask for help are hard to find or non-existent. They're wondering, "Who did you build this for? Why is it so annoying to use?" Meanwhile, developers put their time and energy into building technology to free their users and are left wondering, "Why aren't people just using this? It's not &lt;em&gt;really&lt;/em&gt; that hard to figure out."&lt;/p&gt;
 
 &lt;p&gt;Two free software activists, one developer and one community liaison, take turns asking each other questions about their experiences and goals. All the questions about intent and process that you've been wondering about will finally be answered. At MediaGoblin, we've worked hard to keep the lines of communication between developers and users open from the beginning. This public conversation between MediaGoblin's technical founder and community liaison will replicate some of those conversations for the audience. Our back-and-forth interview will share what we have learned about how free software projects can get users to show up and, more importantly, stay.&lt;/p&gt;</description>
         <persons>
