@@ -1449,6 +1449,7 @@ Also, the steps of building our devices will be presented. This includes the dev
           <link href="https://wiki.linaro.org/LAVA">LAVA wiki</link>
           <link href="https://validation.linaro.org/static/docs/">LAVA documentation</link>
           <link href="http://git-scm.com/docs/git-bisect">git bisect manual</link>
+          <link href="https://git.linaro.org/people/riku.voipio/lava-boot.git/blob/HEAD:/README">Lava-boot git and README</link>
         </links>
       </event>
       <event id="3023">
@@ -1953,13 +1954,13 @@ of each approach.&lt;/p&gt;</description>
         <start>11:00</start>
         <duration>00:50</duration>
         <room>H.1302 (Depage)</room>
-        <slug>nix,_nixos,_nixops</slug>
+        <slug>nix_nixos_nixops</slug>
         <title>Nix, NixOS, NixOps</title>
         <subtitle>From Developing to Provisioning software</subtitle>
         <track>Distributions</track>
         <type>devroom</type>
         <language/>
-        <abstract>&lt;p&gt;Nix is a package manager that provides side-by-side installation of multiple versions of a package, multi-user package management and easy setup of build environments.  This talk highlights how simple features of a package manager can change the way components are developed and deployed.  We will investigate how Nix works and demonstrate how to use it throughout the development life-cycle.  We will create a development environment, configure a system service, deploy to a container for testing and finally deploy a remote system.&lt;/p&gt;</abstract>
+        <abstract>&lt;p&gt;Nix is a package manager that provides side-by-side installation of multiple versions of a package, multi-user package management and easy setup of build environments.  This talk highlights how simple features of a package manager can change the way components are developed and deployed.  We will investigate how Nix works and demonstrate how to use it throughout the development cycle.  We will create a development environment, configure a system service, deploy to a container for testing and finally deploy a remote system.&lt;/p&gt;</abstract>
         <description>&lt;ul&gt;
 &lt;li&gt;Package management:&lt;/li&gt;
 &lt;li&gt;Issues: Correctness, Completeness, Interference.&lt;/li&gt;
@@ -2515,7 +2516,7 @@ well-known projects that receive significant corporate participation.&lt;/p&gt;<
       </event>
       <event id="2812">
         <start>17:30</start>
-        <duration>00:40</duration>
+        <duration>00:50</duration>
         <room>H.1308 (Rolin)</room>
         <slug>fork_and_ignore</slug>
         <title>Fork and Ignore: Fighting a GPL Violation By Coding Instead</title>
@@ -2539,8 +2540,8 @@ well-known projects that receive significant corporate participation.&lt;/p&gt;<
         </links>
       </event>
       <event id="2791">
-        <start>18:15</start>
-        <duration>00:40</duration>
+        <start>18:25</start>
+        <duration>00:35</duration>
         <room>H.1308 (Rolin)</room>
         <slug>termination</slug>
         <title>Discrimination &amp; Reciprocity</title>
@@ -3179,6 +3180,10 @@ The talk will be about how we deliver media using a hybrid system of HTTP and pe
 
 &lt;p&gt;The Open Media devroom is a new at FOSDEM and co-organised by the European Broadcasting Union and FOMS. It addresses the  topics as found in broadcast(radio/TV) and Web media technologies such as video/audio encoding, playout, streaming, broadcasting, metadata . Information of related activities to this topic.&lt;/p&gt;</description>
         <persons>
+          <person id="2514">Kieran Kunhya</person>
+          <person id="1505">Michael Dale</person>
+          <person id="2374">Mathias Coinchon</person>
+          <person id="2553">Frans</person>
         </persons>
         <links>
           <link href="http://tech.ebu.ch">EBU Technology&amp;Innovation</link>
@@ -3281,9 +3286,7 @@ The system makes use of the core.async library and the reactive UI library Om.&l
         <track>Lisp</track>
         <type>devroom</type>
         <language/>
-        <abstract>&lt;p&gt;This talk will discuss the issues around implemeting LFE (Lisp Flavoured Erlang) on the Erlang VM. The Erlang VM has been specially designed to implement Erlang and as such it has a number of interesting features and limitations which directly influence the design of a lisp running on top of it. We will look at the properties of the Erlang VM and our design goals for LFE and the LFE lisp which this resulted in.&lt;/p&gt;
-
-&lt;p&gt;The talk can be adapted to either a shorter 30 mins or a longer 60 mins.&lt;/p&gt;</abstract>
+        <abstract>&lt;p&gt;This talk will discuss the issues around implemeting LFE (Lisp Flavoured Erlang) on the Erlang VM. The Erlang VM has been specially designed to implement Erlang and as such it has a number of interesting features and limitations which directly influence the design of a lisp running on top of it. We will look at the properties of the Erlang VM and our design goals for LFE and the LFE lisp which this resulted in.&lt;/p&gt;</abstract>
         <description></description>
         <persons>
           <person id="2837">Robert Virding</person>
@@ -4393,6 +4396,10 @@ Three key contributions The Tesseract makes include partitioning "super vertices
           <link href="http://en.wikipedia.org/wiki/Clique_problem">The Clique problem</link>
           <link href="http://en.wikipedia.org/wiki/Karp%27s_21_NP-complete_problems">Karp's 21 NP-complete problems</link>
           <link href="http://cgi.di.uoa.gr/~sgk/teaching/grad/handouts/karp.pdf">Reducibility among combinatorial problems (Richard M. Karp)</link>
+          <link href="http://hal.upmc.fr/file/index/docid/555588/filename/techreport.pdf">A comprehensive study of Convergent and Commutative Replicated Data Types</link>
+          <link href="http://haskell.org">Haskell</link>
+          <link href="http://en.wikipedia.org/wiki/Rendezvous_hashing">Rendezvous hashing</link>
+          <link href="http://en.wikipedia.org/wiki/Graph_theory">Graph theory</link>
         </links>
       </event>
       <event id="3459">
@@ -5911,7 +5918,7 @@ And when approaching new languages, always remember: You can't scare us, we've u
       </event>
       <event id="3492">
         <start>18:05</start>
-        <duration>00:50</duration>
+        <duration>00:55</duration>
         <room>K.3.401</room>
         <slug>perl6_beyond_dynamic_vs_static</slug>
         <title>Perl 6: beyond dynamic vs. static</title>
@@ -6382,6 +6389,7 @@ Having written the extensions gives me a much deeper understanding of MRI in par
         <description></description>
         <persons>
           <person id="2451">Chris Seaton</person>
+          <person id="2983">Benoit Daloze</person>
         </persons>
         <links>
         </links>
@@ -6412,6 +6420,32 @@ Having written the extensions gives me a much deeper understanding of MRI in par
           <person id="2904">Terence Lee</person>
         </persons>
         <links>
+        </links>
+      </event>
+      <event id="3520">
+        <start>16:35</start>
+        <duration>00:45</duration>
+        <room>K.4.401</room>
+        <slug>inside_rubymotion</slug>
+        <title>Inside RubyMotion</title>
+        <subtitle>The toolchain that lets Ruby developers write iOS and Android apps</subtitle>
+        <track>Ruby</track>
+        <type>devroom</type>
+        <language/>
+        <abstract>&lt;p&gt;RubyMotion is a toolchain that lets Ruby developers write iOS and Android apps. Internally RubyMotion features 2 distinct implementations of the Ruby language (one for the Objective-C runtime and one for the JVM) as well as a static compiler written with LLVM. In this presentation, we will dig inside RubyMotion and see how everything works, from unified runtimes to static and dynamic (JIT) compilation strategies.&lt;/p&gt;</abstract>
+        <description>&lt;p&gt;This presentation will focus on RubyMotion internals. It will not cover iOS or Android development. It will not focus on Ruby as a development language as well.&lt;/p&gt;
+
+&lt;p&gt;We will start by introducing RubyMotion then explain how it works. We will do quick overviews of the 2 Ruby runtimes included in RubyMotion, which are full implementations of Ruby, and explain design and implementation decisions.&lt;/p&gt;
+
+&lt;p&gt;Following up, we will explain how RubyMotion apps are statically compiled into machine code. We will have a look inside the RubyMotion compiler, written in LLVM, and we will explain how a dynamic language such as Ruby gets compiled statically. We will look at a few optimization passes.&lt;/p&gt;
+
+&lt;p&gt;Finally, if we have time, we will show up a few exciting use cases of the LLVM JIT, used to implement the REPL (irb) in RubyMotion.&lt;/p&gt;</description>
+        <persons>
+          <person id="1806">Laurent Sansonetti</person>
+        </persons>
+        <links>
+          <link href="http://rubymotion.com">http://rubymotion.com</link>
+          <link href="http://">http://</link>
         </links>
       </event>
     </room>
@@ -7160,7 +7194,7 @@ It's relatively rare and difficult to keep a large scale open source project goi
         <description>&lt;p&gt;Looking at the evolution of the cloud, as a file share and sync solution, everything started with centralized services and evolved to to the point where everybody can set up his own Cloud with Free
 Software. Decentralizing the cloud was a important step but at the same time it created islands. Only user on the same instance can collaborate on the same files. The next step will be to connect this individual clouds to enable the users to collaborate seamlessly across multiple instances. The ownCloud project works actively on this idea, this talk will discuss the general idea behind it and how this is going to happen.&lt;/p&gt;</description>
         <persons>
-          <person id="2448">Björn Schießle</person>
+          <person id="288">Frank Karlitschek</person>
         </persons>
         <links>
           <link href="http://www.owncloud.org">The ownCloud project</link>
@@ -7882,13 +7916,13 @@ The second part is about some of SDCC's unusual optimizations currently not foun
         <duration>00:25</duration>
         <room>UB2.252A (Lameere)</room>
         <slug>mediamanage</slug>
-        <title>The connected playlist of everything</title>
-        <subtitle>How to get your music in your car</subtitle>
+        <title>An update on the GENIVI Media Manager</title>
+        <subtitle/>
         <track>Embedded</track>
         <type>devroom</type>
         <language/>
-        <abstract>&lt;p&gt;You want your music in the car with you but its stuck in the "cloud" or on some removable medium. This talk will describe what the process of creating a playlist from open source components and removable media looks like in detail. It will show the gory details of how you connect your USB device to a car's embedded system and how that can be played in a media player in the car.&lt;/p&gt;</abstract>
-        <description>&lt;p&gt;You want your music in the car with you but its stuck in the "cloud" or on some removable medium. This talk will describe what the process of creating a playlist from open source components and removable media looks like in detail. It will show the gory details of how you connect your USB device to a car's embedded system and how that can be played in a media player in the car.&lt;/p&gt;</description>
+        <abstract>&lt;p&gt;I'll give an update on the GENIVI Media Manager project, both as a member of the working group specifying its interfaces and functionality and as a developer on the project. The media manager is a joint project of the Automotive Grade Linux and GENIVI, set out to define a common set of APIs for playing and managing media in a car.&lt;/p&gt;</abstract>
+        <description>&lt;p&gt;The concepts behind the media manager will be presented, and an overview of the architecture of the media manager proof-of-concept implementation will be given.&lt;/p&gt;</description>
         <persons>
           <person id="2189">Jonatan Palsson</person>
         </persons>
@@ -7937,7 +7971,7 @@ The aim of multi-user Tizen 3 support is to enable multiple profile in connected
 &lt;p&gt;We will see how this new feature allows a new way to manage applications, services and HW resources in a secured multi-seat context, thus meeting Tizen In-Vehicle Infotainment (IVI) project needs;
 We will discover the concepts of a default user before connecting, of separated connected users and privilege user and how users can exchange seats without lost their applications context.&lt;/p&gt;</description>
         <persons>
-          <person id="2984">Kevin Thierry</person>
+          <person id="2984">Kévin Thierry</person>
         </persons>
         <links>
         </links>
@@ -9717,15 +9751,15 @@ This is your chance to try the environment for yourself, and see the future of l
         <duration>00:25</duration>
         <room>AW1.120</room>
         <slug>openconnect_vpn</slug>
-        <title>Software isolation issues</title>
-        <subtitle>faced on the development of openconnect VPN server</subtitle>
+        <title>Software isolation in Linux</title>
+        <subtitle>as used in the development of openconnect VPN server</subtitle>
         <track>Security devroom</track>
         <type>devroom</type>
         <language/>
         <abstract>&lt;p&gt;For the development of openconnect VPN server a decision to compartmentalize the server was taken, in order to protect any sensitive values exchanged, ranging from the user transferred data, to the data used during the authentication process.
-This talk will summarize the issues faced during that development that relate to software isolation. That would cover issues with protecting the server's keys via TLS, the client-side authentication of TLS, and PAM authentication, and how they were solved (or not).&lt;/p&gt;</abstract>
+This talk will summarize the issues faced during that development that relate to software isolation. That would cover issues with protecting the server's keys via TLS, the client-side authentication of TLS, and PAM authentication, and how they were solved.&lt;/p&gt;</abstract>
         <description>&lt;p&gt;For the development of openconnect VPN server a decision to compartmentalize the server was taken, in order to protect any sensitive values exchanged, ranging from the user transferred data, to the data used during the authentication process.
-This talk will summarize the issues faced during that development that relate to software isolation. That would cover issues with protecting the server's keys via TLS, the client-side authentication of TLS, and PAM authentication, and how they were solved (or not).&lt;/p&gt;</description>
+This talk will summarize the issues faced during that development that relate to software isolation. That would cover issues with protecting the server's keys via TLS, the client-side authentication of TLS, and PAM authentication, and how they were solved.&lt;/p&gt;</description>
         <persons>
           <person id="2362">Nikos Mavrogiannopoulos</person>
         </persons>
@@ -9904,6 +9938,51 @@ I am estimating that this talk is 30 mins, although I am busy coding, so have no
           <person id="2741">Romek Szczesniak</person>
         </persons>
         <links>
+        </links>
+      </event>
+      <event id="3278">
+        <start>13:30</start>
+        <duration>00:25</duration>
+        <room>AW1.120</room>
+        <slug>netaidkit</slug>
+        <title>NetAidKit</title>
+        <subtitle>Usable Privacy and Anonymity for Journalists</subtitle>
+        <track>Security devroom</track>
+        <type>devroom</type>
+        <language/>
+        <abstract>&lt;p&gt;The NetAidKit is a pocket size, USB powered router that connects
+everything to everything, designed specifically for non-technical
+users. The easy to use web interface will allow you to connect the
+NetAidKit to a wireless or wired network and share that connection
+with your other devices, such as a phone, laptop or tablet.&lt;/p&gt;
+
+&lt;p&gt;Once the NetAidKit is connected to a wireless or wired network, you
+can make it connect to a Virtual Private Network or the anonymising
+Tor network at the click of a button. Any devices connected to the
+NetAidKit will use these extra security features automatically,
+without needing to configure each of the devices separately.&lt;/p&gt;
+
+&lt;p&gt;For more info, see: https://netaidkit.net&lt;/p&gt;</abstract>
+        <description>&lt;p&gt;The NetAidKit is a pocket size, USB powered router that connects
+everything to everything, designed specifically for non-technical
+users. The easy to use web interface will allow you to connect the
+NetAidKit to a wireless or wired network and share that connection
+with your other devices, such as a phone, laptop or tablet.&lt;/p&gt;
+
+&lt;p&gt;Once the NetAidKit is connected to a wireless or wired network, you
+can make it connect to a Virtual Private Network or the anonymising
+Tor network at the click of a button. Any devices connected to the
+NetAidKit will use these extra security features automatically,
+without needing to configure each of the devices separately.&lt;/p&gt;
+
+&lt;p&gt;For more info, see: https://netaidkit.net&lt;/p&gt;</description>
+        <persons>
+          <person id="2422">Harm Boertien</person>
+        </persons>
+        <links>
+          <link href="http://blog.radicallyopensecurity.com/sbox-usable-privacy-and-anonymity-for-journalists.html">First blog on the S/Box</link>
+          <link href="https://netaidkit.net/">New website for the NetAidKit</link>
+          <link href="http://">http://</link>
         </links>
       </event>
       <event id="3024">
@@ -12254,7 +12333,7 @@ LPI offers level 1, level 2 and level 3 certification exams at FOSDEM with an al
         <start>09:00</start>
         <duration>00:25</duration>
         <room>UD2.218A</room>
-        <slug>http/2_right_now</slug>
+        <slug>http2_right_now</slug>
         <title>HTTP/2 right now</title>
         <subtitle>How we got here, some basics, what Mozilla does and what's next!</subtitle>
         <track>Mozilla</track>
@@ -12275,7 +12354,7 @@ LPI offers level 1, level 2 and level 3 certification exams at FOSDEM with an al
         <start>09:30</start>
         <duration>00:25</duration>
         <room>UD2.218A</room>
-        <slug>firefox_os_web_apis</slug>
+        <slug>firefoxos_web_apis</slug>
         <title>Firefox OS web API's</title>
         <subtitle>New cool web apis and their impact</subtitle>
         <track>Mozilla</track>
@@ -12293,7 +12372,7 @@ LPI offers level 1, level 2 and level 3 certification exams at FOSDEM with an al
         <start>10:00</start>
         <duration>00:25</duration>
         <room>UD2.218A</room>
-        <slug>using_firefox_to_debug_web_apps_on_any_device</slug>
+        <slug>using_firefox_to_debug_web_apps</slug>
         <title>Using Firefox to debug web apps on any device</title>
         <subtitle>Introducing the Firefox Developer Tools Adapter</subtitle>
         <track>Mozilla</track>
@@ -12353,7 +12432,7 @@ LPI offers level 1, level 2 and level 3 certification exams at FOSDEM with an al
         <start>11:30</start>
         <duration>00:25</duration>
         <room>UD2.218A</room>
-        <slug>participation_metrics_at_mozilla</slug>
+        <slug>participation_metrics_mozilla</slug>
         <title>Participation metrics at Mozilla</title>
         <subtitle>A story of systems and data</subtitle>
         <track>Mozilla</track>
@@ -12419,7 +12498,7 @@ LPI offers level 1, level 2 and level 3 certification exams at FOSDEM with an al
         <start>13:00</start>
         <duration>00:25</duration>
         <room>UD2.218A</room>
-        <slug>privacy_features_for_firefox_for_android</slug>
+        <slug>privacy_features_firefox_android</slug>
         <title>Privacy features for Firefox for Android</title>
         <subtitle>Supporting privacy on the mobile web with built-in features and add-ons</subtitle>
         <track>Mozilla</track>
@@ -12475,7 +12554,7 @@ results
         <start>14:00</start>
         <duration>00:25</duration>
         <room>UD2.218A</room>
-        <slug>superturbocharging_firefox_os_app_development_with_node_firefox</slug>
+        <slug>superturbocharging_firefoxos_app_development</slug>
         <title>Superturbocharging Firefox OS app development with node-firefox</title>
         <subtitle/>
         <track>Mozilla</track>
@@ -12506,6 +12585,7 @@ results
         <description></description>
         <persons>
           <person id="2688">Benjamin Bouvier</person>
+          <person id="2985">Hannes Verschore</person>
         </persons>
         <links>
         </links>
@@ -12514,7 +12594,7 @@ results
         <start>15:30</start>
         <duration>00:25</duration>
         <room>UD2.218A</room>
-        <slug>servo_the_parallel_web_browser_and_you!</slug>
+        <slug>servo_and_you</slug>
         <title>Servo (the parallel web browser) and YOU!</title>
         <subtitle>A beginner's guide to contributing to Servo</subtitle>
         <track>Mozilla</track>
@@ -12532,13 +12612,13 @@ results
         <start>16:00</start>
         <duration>00:25</duration>
         <room>UD2.218A</room>
-        <slug>firefox_os_tricorder</slug>
+        <slug>firefoxos_tricoder</slug>
         <title>Firefox OS Tricorder</title>
         <subtitle>Reading device sensor data in JavaScript</subtitle>
         <track>Mozilla</track>
         <type>devroom</type>
         <language/>
-        <abstract></abstract>
+        <abstract>&lt;p&gt;The talk gives insight into how data sensors can be read from JavaScript so you can do your own apps using that data.&lt;/p&gt;</abstract>
         <description></description>
         <persons>
           <person id="142">Robert Kaiser</person>
@@ -12550,7 +12630,7 @@ results
         <start>16:30</start>
         <duration>00:25</duration>
         <room>UD2.218A</room>
-        <slug>building_open_html5_games_for_firefox_os</slug>
+        <slug>building_html5_games_for_firefoxos</slug>
         <title>Building open HTML5 games for Firefox OS</title>
         <subtitle>HTML5 Game Development for the Firefox OS Mobile Platform</subtitle>
         <track>Mozilla</track>
