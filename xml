@@ -387,6 +387,7 @@ how this is relevant for the complete free software eco system and how you can c
         <links>
           <link href="https://wiki.debian.org/ReproducibleBuilds">about Reproducible Builds of Debian</link>
           <link href="https://reproducible.debian.net">shiny graphs about the current state</link>
+          <link href="https://fosdem.org/2015/interviews/2015-holger-levsen/">FOSDEM 2015 interview</link>
         </links>
       </event>
     </room>
@@ -572,7 +573,7 @@ Just a few years ago, an intense effort by Google resulted in Spanner - a global
         <track>Lightning talks</track>
         <type>lightningtalk</type>
         <language/>
-        <abstract>&lt;p&gt;In this Lightning Talk we want to present “Requirements Bazaar 2.0” that aims to be a social platform to bring developers and end-users together. In years of research we have developed and actually operated an Open Innovation Platform for gathering requirements for prototypes in large international academic projects. The last version of the current product is available under http://requirements-bazaar.org . End-users can enter their requirements by providing short descriptions including user stories, screenshots and other images. The requirements can then be shared amongst its users. On the other side of the chain, developers may take up ideas and transfer the accepted requirements to an issue system like JIRA.&lt;/p&gt;
+        <abstract>&lt;p&gt;In this Lightning Talk we want to present “Requirements Bazaar 2.0” that aims to be a social continuous innovation platform to bring developers and end-users together. In years of research we have developed and actually operated an open innovation platform for gathering requirements for prototypes in large international academic projects. The last version of the current product is available under http://requirements-bazaar.org . End-users can enter their requirements by providing short descriptions including user stories, screenshots and other images. The requirements can then be shared amongst its users. On the other side of the chain, developers may take up ideas and transfer the accepted requirements to an issue system like JIRA.&lt;/p&gt;
 
 &lt;p&gt;Over the last years it turned out that people want more lightweight and mobile-friendly tools; we found the old monolithic system to be very hard to maintain to add new features. Therefore we are currently redeveloping it from scratch integrating many ideas from our users and incorporating new research findings. We are further driven by a mobile-first approach to support a wide variety of devices. We additionally want to support various social features like sharing on social networks or blogs and allowing discussions and rating amongst end-users and developers.&lt;/p&gt;
 
@@ -587,8 +588,9 @@ https://github.com/rwth-acis/RequirementsBazaar-WebFrontend&lt;/p&gt;
           <person id="2608">István Koren</person>
         </persons>
         <links>
-          <link href="https://github.com/rwth-acis/RequirementsBazaar">main backend</link>
-          <link href="https://github.com/rwth-acis/RequirementsBazaar-WebFrontend">Web frontend</link>
+          <link href="https://registry.hub.docker.com/u/rwthacis/reqbaz-service/">Docker Container of nightly build</link>
+          <link href="https://github.com/rwth-acis/RequirementsBazaar">Service on GitHub</link>
+          <link href="https://github.com/rwth-acis/RequirementsBazaar-WebFrontend">Web Frontend on GitHub</link>
         </links>
       </event>
       <event id="2786">
@@ -674,24 +676,24 @@ https://github.com/rwth-acis/RequirementsBazaar-WebFrontend&lt;/p&gt;
         <duration>00:15</duration>
         <room>H.2215 (Ferrer)</room>
         <slug>yatta</slug>
-        <title>yjs: A Real-Time Framework for Peer-to-peer Group Editing on Arbitrary Data Types</title>
+        <title>Yjs: A Real-Time Framework for Peer-to-peer Group Editing on Arbitrary Data Types</title>
         <subtitle>Enabling real-time collaboration on the Web</subtitle>
         <track>Lightning talks</track>
         <type>lightningtalk</type>
         <language/>
-        <abstract>&lt;p&gt;yjs is an open source framework that can be used to collaborate in real-time on arbitrary data types. It is based on a new operational transformation-like approach that can be used in peer-to-peer settings on the Web, using standard communication protocols such as WebRTC or XMPP. Part of the shared editing projects family (e.g. ShareJs, OpenCoweb, etc.), yjs currently implements support for text, XML and JSON and proved to be very fast and reliable.
-In this lightning talk we introduce the concepts and features of the yjs framework and discuss how it can be leveraged to design the next generation of peer-to-peer shared editing tools. We conclude the talk with a short demo that highlights the capabilities of the framework.&lt;/p&gt;</abstract>
-        <description>&lt;p&gt;yjs solves many of the current issues for concurrency control and consistency maintenance approaches in collaborative software. In order to achieve this, we created a new approach for optimistic concurrency control, which was formally proven to be reliable and to output the best time complexity (compared to existing dedicated related literature). The approach was designed to support real-time shared editing on linear, tree and graph data structures. A short part of this lightning talk aims to present the core concepts of our approach.&lt;/p&gt;
+        <abstract>&lt;p&gt;Yjs is an open source framework that can be used to collaborate in real-time on arbitrary data types. It is based on a new operational transformation-like approach that can be used in peer-to-peer settings on the Web, using standard communication protocols such as WebRTC or XMPP. Part of the shared editing projects family (e.g. ShareJs, OpenCoweb, etc.), Yjs currently implements support for text, XML and JSON and proved to be very fast and reliable.
+In this lightning talk we introduce the concepts and features of the Yjs framework and discuss how it can be leveraged to design the next generation of peer-to-peer shared editing tools. We conclude the talk with a short demo that highlights the capabilities of the framework.&lt;/p&gt;</abstract>
+        <description>&lt;p&gt;Yjs solves many of the current issues for concurrency control and consistency maintenance approaches in collaborative software. In order to achieve this, we created a new approach for optimistic concurrency control, which was formally proven to be reliable and to output the best time complexity (compared to existing dedicated related literature). The approach was designed to support real-time shared editing on linear, tree and graph data structures. A short part of this lightning talk aims to present the core concepts of our approach.&lt;/p&gt;
 
-&lt;p&gt;Designed to work on both peer-to-peer and client-server architectures, yjs can be easily embedded in Web applications in order to foster collaboration. Developed in Javascript, the framework outputs very good scaling capabilities in the number of users and operations in test environments. yjs currently supports text, JSON and XML data types and was tested using WebRTC and XMPP as an underlying communication protocol.&lt;/p&gt;
+&lt;p&gt;Designed to work on both peer-to-peer and client-server architectures, Yjs can be easily embedded in Web applications in order to foster collaboration. Developed in Javascript, the framework outputs very good scaling capabilities in the number of users and operations in test environments. Yjs currently supports text, JSON and XML data types and was tested using WebRTC and XMPP as an underlying communication protocol.&lt;/p&gt;
 
-&lt;p&gt;In this lightning talk, the yjs framework will be presented to the wider OS community for the first time. We consider our framework to be developer friendly, but given the opportunity of a lightning talk, we would like to invite FOSDEM developers to use yjs and share with us their experience. Ideally we aim to establish connections and potential collaborations, in order to improve our open source project.&lt;/p&gt;</description>
+&lt;p&gt;In this lightning talk, the Yjs framework will be presented to the wider OS community for the first time. We consider our framework to be developer friendly, but given the opportunity of a lightning talk, we would like to invite FOSDEM developers to use Yjs and share with us their experience. Ideally we aim to establish connections and potential collaborations, in order to improve our open source project.&lt;/p&gt;</description>
         <persons>
           <person id="2623">Petru Nicolaescu</person>
           <person id="2971">Kevin Jahns</person>
         </persons>
         <links>
-          <link href="https://github.com/rwth-acis/yjs">yjs Framework</link>
+          <link href="https://github.com/rwth-acis/yjs">Yjs Framework</link>
         </links>
       </event>
       <event id="2784">
@@ -1163,6 +1165,29 @@ Using sink features, we can pull events from the neutron / nova event queue and 
         <links>
         </links>
       </event>
+      <event id="3523">
+        <start>18:00</start>
+        <duration>01:00</duration>
+        <room>UD2.120 (Chavanne)</room>
+        <slug>iaaspanel</slug>
+        <title>IaaS Devroom Panel</title>
+        <subtitle>Discussing What We've Learned</subtitle>
+        <track>Infrastructure as a service</track>
+        <type>devroom</type>
+        <language/>
+        <abstract>&lt;p&gt;Discussion panel with the IaaS/Virt devroom organizers about the day's program.&lt;/p&gt;</abstract>
+        <description>&lt;p&gt;Discussion panel with the IaaS/Virt devroom organizers about the day's program.&lt;/p&gt;</description>
+        <persons>
+          <person id="427">Thierry Carrez</person>
+          <person id="489">Itamar Heim</person>
+          <person id="1612">jzb</person>
+          <person id="1650">Lars Kurth</person>
+          <person id="1925">Dave Lester</person>
+          <person id="2218">Luca Gibelli</person>
+        </persons>
+        <links>
+        </links>
+      </event>
     </room>
     <room name="UB2.252A (Lameere)">
       <event id="2756">
@@ -1330,37 +1355,6 @@ Xvisor, for the Boundary Devices Nitrogen6x (and the Freescale SabreLite).&lt;/p
           <link href="http://marquisdegeek.com/rnd_chdk.php">Speakers CHDK tools</link>
         </links>
       </event>
-      <event id="3186">
-        <start>15:00</start>
-        <duration>00:45</duration>
-        <room>UB2.252A (Lameere)</room>
-        <slug>embedded_freedom</slug>
-        <title>Freedom Embedded: Devices that Respect their Users</title>
-        <subtitle/>
-        <track>Embedded</track>
-        <type>devroom</type>
-        <language/>
-        <abstract>&lt;p&gt;GNU and Linux are now embedded on more kinds of hardware than ever,
-but often only by requiring proprietary bits. Plus, we now have
-tablets and phones loaded with nonfree software on top of a free core
--- how do we get the freedom we all want, and how do we create the
-market for that? The Free Software Foundation has a certification
-program called "Respects Your Freedom" that awards a certification
-mark to hardware meeting a set of standards (fsf.org/ryf). Embedded
-devices are a major target for the future of this program.&lt;/p&gt;</abstract>
-        <description>&lt;p&gt;It has already made significant gains, especially over the last two
-years, certifying USB wifi adapters, 3D printers, home wifi routers,
-and a laptop. Even bigger things are planned, and most involve the
-embedded world. Hear about what's in store, learn what it takes to get
-your embedded product certified, hear about the impact of
-certification so far, and discuss possible improvements to the
-program.&lt;/p&gt;</description>
-        <persons>
-          <person id="1577">John Sullivan</person>
-        </persons>
-        <links>
-        </links>
-      </event>
       <event id="2738">
         <start>16:00</start>
         <duration>00:25</duration>
@@ -1477,32 +1471,6 @@ Also, the steps of building our devices will be presented. This includes the dev
       </event>
     </room>
     <room name="H.1301 (Cornil)">
-      <event id="3086">
-        <start>10:30</start>
-        <duration>00:25</duration>
-        <room>H.1301 (Cornil)</room>
-        <slug>taskflow:_state_management_framework</slug>
-        <title>TaskFlow: State Management Framework</title>
-        <subtitle/>
-        <track>Python</track>
-        <type>devroom</type>
-        <language/>
-        <abstract>&lt;p&gt;TaskFlow is a lightweight and efficient state management library. It was originally developed for OpenStack projects and has recently become popular and widely used across python community and projects for efficient state management.&lt;/p&gt;
-
-&lt;p&gt;The agenda for this discussion will be following
-1) Motivation &amp;amp; Expectation for State Management
-2) Usage Scenario
-3) Basic Concepts and Architecture
-4) Demonstration and usage of the taskflow library&lt;/p&gt;</abstract>
-        <description></description>
-        <persons>
-          <person id="2695">Vishal Yadav</person>
-        </persons>
-        <links>
-          <link href="http://in.pycon.org/funnel/2014/191-taskflow-python-state-management-framework">PyCon India - 2014</link>
-          <link href="https://speakerdeck.com/navigator/python-taskflow">Speaker Deck</link>
-        </links>
-      </event>
       <event id="2751">
         <start>11:00</start>
         <duration>00:25</duration>
@@ -2961,6 +2929,7 @@ Answer questions
 &lt;p&gt;This talk will present the latest developments in GPAC regarding the media production for playback in modern browsers. This will include aspects related to subtitling (WebVTT, TTML) and graphics (SVG) streaming, MPEG-DASH and HTML5 Media Source Extensions, in particular using the MP4Box.js MP4 demuxer.&lt;/p&gt;</description>
         <persons>
           <person id="2432">Romain Bouqueau</person>
+          <person id="2986">Cyril Concolato</person>
         </persons>
         <links>
           <link href="http://www.gpac.io">http://www.gpac.io</link>
@@ -3072,12 +3041,12 @@ waves and the International Space Station.&lt;/p&gt;
         <duration>00:25</duration>
         <room>H.2213</room>
         <slug>kodi</slug>
-        <title>From XBMP to XBMC to Kodi:</title>
-        <subtitle>A Brief History of the Trials of a User-facing Media Center</subtitle>
+        <title>Kodi mediacenter (XBMC) past, present and future.</title>
+        <subtitle>A brief history on the trials of an open-source media centre</subtitle>
         <track>Open media</track>
         <type>devroom</type>
         <language/>
-        <abstract>&lt;p&gt;In this talk, Nathan will review many of the issues, solutions, pitfalls, and near miracles that have occurred since Kodi started out as a simple media player for the original Xbox. A number of fun toys may also be shown off.&lt;/p&gt;</abstract>
+        <abstract>&lt;p&gt;A brief overview of Kodi (XBMC) open source Media center. How one of the oldest and largest open source projects originated, the path walked to present day and what the future might hold. Talk will include a brief history overview, what steps were taking to come in current state and what our goals are for the future.&lt;/p&gt;</abstract>
         <description>&lt;p&gt;It's relatively rare and difficult to keep a large scale open source project going year after year without the firm financial backing of a larger organization. Since its inception in 2002, the software currently called Kodi has gone through numerous changes, both at the software level and at the organizational level, and has encountered numerous difficulties along the way, from simple communications problems both internally and with the userbase to larger organizational snafus. In this talk, we'll review how the organization has managed to overcome these problems and continue on.&lt;/p&gt;
 
 &lt;p&gt;Topics expected to be covered will include a look at the platforms, distributions, and hardware supported today; a review of the history on the Xbox, the switch to platform agnosticism, and the creation of the Foundation; and plans for the future.&lt;/p&gt;
@@ -3085,6 +3054,7 @@ waves and the International Space Station.&lt;/p&gt;
 &lt;p&gt;Additionally, an overview of how the organization works and software is developed currently will be presented, along with a look at who uses Kodi, both from a user perspective and a business perspective.&lt;/p&gt;</description>
         <persons>
           <person id="2447">Martijn Kaijser</person>
+          <person id="2982">Ejal de Klerk</person>
         </persons>
         <links>
         </links>
@@ -3099,7 +3069,7 @@ waves and the International Space Station.&lt;/p&gt;
         <track>Open media</track>
         <type>devroom</type>
         <language/>
-        <abstract>&lt;p&gt;Exactly what codecs and containers should be favored in audiovisual preservation is an ongoing debate with archives while broadcast industries, media production industries, and increasingly open source communities contributing technology that supports the objectives of audiovisual preservation. As the machinery and skills needed to sustain access to film and analog video collections decay it is increasingly urgent for archives to address blocking technological issues in order to re-format legacy audiovisual recordings to digital formats efficiently. The presentation reviews the requirements and demands on technology within audiovisual preservation projects and assesses the opportunities and concerns of open media to contribute to preservation challenges, with a focus on lossless audiovisual codecs, technical and contextual metadata, and both the openness and standardization of relevant file formats.&lt;/p&gt;</abstract>
+        <abstract>&lt;p&gt;Determining what codecs, containers, and specifications should be favored in audiovisual preservation and how to use them is an ongoing dialogue within archives. Media preservation is a relatively small community and thus often relies on technology and recommendations from larger related communities such as broadcast, media production, and increasingly open source development to support the objectives of audiovisual preservation. As the machinery and skills needed to sustain access to film and analog video collections decay it is increasingly urgent for archives to address blocking technological issues in order to re-format legacy audiovisual recordings to digital formats efficiently. This presentation reviews the requirements and demands on technology within audiovisual preservation projects and assesses the opportunities for existing open source technology to contribute to resolving preservation challenges. The presentation will focus on lossless audiovisual codecs, technical and contextual metadata, and both the openness and standardization of relevant file formats.&lt;/p&gt;</abstract>
         <description></description>
         <persons>
           <person id="2875">Dave Rice</person>
@@ -3187,7 +3157,8 @@ The talk will be about how we deliver media using a hybrid system of HTTP and pe
           <person id="2553">Frans</person>
         </persons>
         <links>
-          <link href="http://tech.ebu.ch">EBU Technology&amp;Innovation</link>
+          <link href="https://tech.ebu.ch/groups/Opensource_1">EBU Technology&amp;Innovation</link>
+          <link href="http://ebu.io/opensource">Awesome broadcasting list</link>
         </links>
       </event>
     </room>
@@ -4255,24 +4226,6 @@ Repository:&lt;/p&gt;</description>
         <links>
           <link href="http://sigmajs.org">Sigma.js website</link>
           <link href="http://github.com/jacomyal/sigma.js">Github repository</link>
-        </links>
-      </event>
-      <event id="3430">
-        <start>14:00</start>
-        <duration>00:45</duration>
-        <room>AW1.125</room>
-        <slug>osm2graphdb</slug>
-        <title>From Open Street Map to your preferred graph database...</title>
-        <subtitle>...and perhaps back again</subtitle>
-        <track>Graph processing</track>
-        <type>devroom</type>
-        <language/>
-        <abstract>&lt;p&gt;From Open Street Map to your preferred graph database (and perhaps back again)...&lt;/p&gt;</abstract>
-        <description>&lt;p&gt;From Open Street Map to your preferred graph database (and perhaps back again)...&lt;/p&gt;</description>
-        <persons>
-          <person id="308">Achim Friedland</person>
-        </persons>
-        <links>
         </links>
       </event>
       <event id="3376">
@@ -5939,17 +5892,17 @@ In this session, we'll explore how Perl 6 strikes a balance between static and d
       </event>
     </room>
     <room name="K.4.201">
-      <event id="3413">
+      <event id="3437">
         <start>10:30</start>
         <duration>00:25</duration>
         <room>K.4.201</room>
-        <slug>state_of_openjdk</slug>
-        <title>The State of OpenJDK</title>
+        <slug>java_modules</slug>
+        <title>Java 9: Make Way for Modules!</title>
         <subtitle/>
         <track>Java</track>
         <type>devroom</type>
         <language/>
-        <abstract>&lt;p&gt;A review of the past year in the life of the OpenJDK Community, and a look at what's ahead.&lt;/p&gt;</abstract>
+        <abstract>&lt;p&gt;Java 9 will introduce a standard module system to the platform in order to modularize the platform itself, improve performance and security, and simplify the development and maintenance of large applications.  In this session we'll discuss how these changes will impact developers in general and those who work on the JDK in particular.&lt;/p&gt;</abstract>
         <description></description>
         <persons>
           <person id="218">Mark Reinhold</person>
@@ -6621,8 +6574,12 @@ The OSGi specification is an open standard specification, describing a framework
         <track>Languages</track>
         <type>maintrack</type>
         <language/>
-        <abstract></abstract>
-        <description></description>
+        <abstract>&lt;p&gt;A retrospective on Rust 1.0!&lt;/p&gt;</abstract>
+        <description>&lt;p&gt;The Rust programming language is just about to hit its 1.0
+release. It's been a very long time coming, and in this talk, I'd like
+to give a retrospective on Rust's history, and show you how it came to
+be today. A teaser: Rust has &lt;em&gt;lost&lt;/em&gt; many more features than it's
+actually gained!&lt;/p&gt;</description>
         <persons>
           <person id="2923">Steve Klabnik</person>
         </persons>
@@ -7119,20 +7076,17 @@ Outgoing messages are handled through audio recording, incoming messages are rea
         <duration>00:15</duration>
         <room>H.2215 (Ferrer)</room>
         <slug>kodi_mediacenter</slug>
-        <title>Open source Kodi mediacenter (XBMC) past, present and future</title>
-        <subtitle/>
+        <title>Kodi mediacenter (XBMC) past, present and future</title>
+        <subtitle>A very brief history on the trials of an open-source media centre</subtitle>
         <track>Lightning talks</track>
         <type>lightningtalk</type>
         <language/>
         <abstract>&lt;p&gt;A brief overview of Kodi (XBMC) open source Media center. How one of the oldest and largest open source projects originated, the path walked to present day and what the future might hold. Talk will include a brief history overview, what steps were taking to come in current state and what our goals are for the future.&lt;/p&gt;</abstract>
-        <description>&lt;p&gt;Title:
-From XBMP to XBMC to Kodi: A Brief History of the Trials of a User-facing Media Center and it's future&lt;/p&gt;
+        <description>&lt;p&gt;It's relatively rare and difficult to keep a large scale open source project going year after year without the firm financial backing of a larger organization. Since its inception in 2002, the software currently called Kodi has gone through numerous changes, both at the software level and at the organizational level, and has encountered numerous difficulties along the way, from simple communications problems both internally and with the userbase to larger organizational snafus. In this talk, we'll review how the organization has managed to overcome these problems and continue on.&lt;/p&gt;
 
-&lt;p&gt;Brief description:
-In this talk, we will review many of the issues, solutions, pitfalls, and near miracles that have occurred since Kodi started out as a simple media player for the original Xbox.&lt;/p&gt;
+&lt;p&gt;Topics expected to be covered will include a look at the platforms, distributions, and hardware supported today; a review of the history on the Xbox, the switch to platform agnosticism, and the creation of the Foundation; and plans for the future.&lt;/p&gt;
 
-&lt;p&gt;Short abstract:
-It's relatively rare and difficult to keep a large scale open source project going year after year without the firm financial backing of a larger organization. Since its inception in 2002, the software currently called Kodi has gone through numerous changes, both at the software level and at the organizational level, and has encountered numerous difficulties along the way, from simple communications problems both internally and with the userbase to larger organizational snafus. In this talk, we'll briefly go through the history and what we have planned for the future&lt;/p&gt;</description>
+&lt;p&gt;Additionally, an overview of how the organization works and software is developed currently will be presented, along with a look at who uses Kodi, both from a user perspective and a business perspective.&lt;/p&gt;</description>
         <persons>
           <person id="2447">Martijn Kaijser</person>
           <person id="2982">Ejal de Klerk</person>
@@ -7474,7 +7428,8 @@ Finally, there are some trust issues that must also be taken into account. There
           <person id="2424">Ramón Cahenzli</person>
         </persons>
         <links>
-          <link href="https://github.com/zhdk/leihs">homepage</link>
+          <link href="https://github.com/zhdk/leihs">Leihs homepage</link>
+          <link href="http://www.zhdk.ch">ZHdK</link>
         </links>
       </event>
       <event id="2873">
@@ -7700,7 +7655,7 @@ Finally, there are some trust issues that must also be taken into account. There
 
 &lt;p&gt;First, it will help those making decisions about which technology to used to make an informed decision.  Secondly, by giving the  audience a framework for thinking about security analysis, and show how to apply it to some concrete examples, it will help anyone thinking about security in almost any area of development or configuration.&lt;/p&gt;</description>
         <persons>
-          <person id="2772">George Dunlap</person>
+          <person id="2988">Ian Jackson</person>
         </persons>
         <links>
         </links>
@@ -8098,11 +8053,14 @@ Hence, the second part of this presentation will introduce the recent efforts th
         <language/>
         <abstract>&lt;p&gt;The bitbox console is a small open hardware &amp;amp; open source game console.
 I will present the rationale behind it and the current status of the project, detail the hardware conception and particularly video signal generation from a cortex-m4 chip with no video subsystem. I will then proceed to show the different elements of the software stack : kernel, video engines, the boot loader and, finally, current programs and games, including a Gameboy emulator and a full motion video player.&lt;/p&gt;</abstract>
-        <description>&lt;p&gt;The bitbox console is a current open hardware / software project.&lt;/p&gt;
+        <description>&lt;p&gt;The bitbox console is a small open hardware &amp;amp; open source game console.
+The intent behind it is to make a fun little, open console that anyone can actually build, hack or modify.&lt;/p&gt;
+
+&lt;p&gt;I will present the rationale behind it and the current status of the project, detail the hardware conception and particularly video signal generation from an ARM cortex-m4 microcontroller with no video subsystem. I will then proceed to show the different elements of the software stack : kernel, video engines, the boot loader and, finally, current programs and games, including a Gameboy emulator and a full motion video player.&lt;/p&gt;
 
 &lt;p&gt;Its current abilities are  :&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;- Based on the STM32F4 chip including 1MB Flash and 192kB SRAM
+&lt;pre&gt;&lt;code&gt;- Based on the STM32F4 ARM chip including 1MB Flash and 192kB SRAM
 - 15 bit (32768 colors) color VGA with a resistive DAC.
 - Software based signal generation, DMA based. Resolution : Variable, standard resolution of 640x480 @ 60 Hertz
 - Stereo 12bit Audio DAC, variable sampling frequency
@@ -10261,6 +10219,8 @@ After six years of development and a long beta release cycle the new stable GRAS
         </persons>
         <links>
           <link href="http://grass.osgeo.org">GRASS GIS Website</link>
+          <link href="http://gis.cri.fmach.it/eurolst/">EuroLST (MODIS data)</link>
+          <link href="http://grass.osgeo.org/news/40/15/GRASS-GIS-7-0-0-RC1/">GRASS GIS 7.0.0 RC1 Announcement</link>
         </links>
       </event>
       <event id="3019">
@@ -12178,114 +12138,22 @@ http://www.percona.com/blog/2014/08/12/benchmarking-exflash-with-sysbench-fileio
           <link href="http://www.slideshare.net/SvetaSmirnova/performance-schema-for-mysql-troubleshooting">Slides from similar seminar in Russia</link>
         </links>
       </event>
-      <event id="3235">
+      <event id="2663">
         <start>16:20</start>
         <duration>00:20</duration>
         <room>UA2.114 (Baudoux)</room>
-        <slug>enomem</slug>
-        <title>ENOMEM: Will databases ever stop asking for more memory</title>
+        <slug>mysql_nosql</slug>
+        <title>MySQL &amp; NoSQL - best of both worlds</title>
         <subtitle/>
         <track>MySQL and friends</track>
         <type>devroom</type>
         <language/>
-        <abstract>&lt;p&gt;Perennial issues with memory have been plaguing everyone since forever.
-Nowhere is this more evident than in the context of databases, whose
-memory requirements have exploded with BigData, and also due to rise of
-faster low-latency storage media. This talk explores the memory issues
-databases face when they scale, MySQL/InnoDB/XtraDB, PostGreSQL, Cassandra,
-Redis are mostly considered for this talk.&lt;/p&gt;
+        <abstract>&lt;p&gt;There’s a lot of excitement around NoSQL Data Stores with the promise of simple access patterns, flexible schemas, scalability and High Availability. The downside comes in the form of losing ACID transactions, consistency, flexible queries and data integrity checks. What if you could have the best of both worlds? This session shows how MySQL Cluster provides simultaneous SQL and native NoSQL access to your data – whether a simple key-value API (Memcached), REST, JavaScript, Java or C++. You will hear how the MySQL Cluster architecture delivers in-memory real-time performance, 99.999% availability, on-line maintenance and linear, horizontal scalability through transparent auto-sharding.&lt;/p&gt;</abstract>
+        <description>&lt;p&gt;There’s a lot of excitement around NoSQL Data Stores with the promise of simple access patterns, flexible schemas, scalability and High Availability. The downside comes in the form of losing ACID transactions, consistency, flexible queries and data integrity checks. What if you could have the best of both worlds? This session shows how MySQL Cluster provides simultaneous SQL and native NoSQL access to your data – whether a simple key-value API (Memcached), REST, JavaScript, Java or C++. You will hear how the MySQL Cluster architecture delivers in-memory real-time performance, 99.999% availability, on-line maintenance and linear, horizontal scalability through transparent auto-sharding.&lt;/p&gt;
 
-&lt;p&gt;In short, this talk, will try to cover all the possible rough edges a database
-runs into, in regards with memory at scale. The audience, especially the
-database devops, should be able to understand possible memory issues here, and
-strategies to either avoid them, or fix them in their applications, or in the
-design of their database systems itself.&lt;/p&gt;</abstract>
-        <description>&lt;p&gt;Perennial issues with memory have been plaguing everyone since forever.
-Nowhere is this more evident than in the context of databases, whose
-memory requirements have exploded with BigData, and also due to rise of
-faster low-latency storage media. This talk explores the memory issues
-databases face when they scale, MySQL/InnoDB/XtraDB, PostGreSQL, Cassandra,
-Redis are mostly considered for this talk.&lt;/p&gt;
-
-&lt;p&gt;Few areas covered are like:&lt;/p&gt;
-
-&lt;p&gt;a) Sharing and Merging:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;* Kernel Same Page Merging (KSM) is one of the memory deduplication methods available today which allows to reduce memory footprint of virtualized instances, especially when some of them  share identical read-only mounts and/or are built from near-identical (CoW) images. 
-* Databases should themselves be able to manage this with MADV_MERGEABLE/MADV_UNMERGEABLE.
-* Transparent Huge Pages - While this has helped with database buffer pools, the CPU requirement may have been non-trivial here. MADV_NOHUGEPAGE/MADV_HUGEPAGE can be used here by databases to avoid any gotchas.
-* Memory ballooning to switch hot and cold database instances during upgrades and migration.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;b) Balancing of memory nodes and NUMA:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;* While kernel is increasingly providing enhanced NUMA balancing, it also helps if applications are more NUMA-aware and have predictable allocations and workloads. While some implementations are forcing equal interleaved allocation for better protection against reclaim, with non-optimal thread placement, this can result in non-trival foreign accesses. Partitioned node-local buffer pools  and thread pools, for instance in MySQL can help here.
-
-* With newer and exotic boxes with non-uniform memory access (covered in talks in http://collaborationsummit2014.sched.org/event/43ba89be563fcf17dc3ee8449c26f60a#.U8wrfKZX-DI), it is becoming increasingly important to both take advantange of these and not allow for performance degradation with scale.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;c) Containers and cgroups&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;* While using docker or LXC, or running inside chroots from systemd-nspawn, cgroups, memcg in particular can be leveraged to fence the memory bandwidth of each. 
-* Slices from systemd
-* Migrations and multiple instances
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;d) Memory pressure and rest&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;* This is about dirty memory pressure and its impact over I/O, particularly in multi-threaded paths.
-* PostgreSQL is one of the affected here.
-* Stalls and query latency: Latency from fsync.
-* vmsplice and page cache: write without read in append-type logs without O_DIRECT
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;e) O_DIRECT idiosyncrasies&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;* Does O_DIRECT alleviate issues with dirty memory pressure completely?
-* Handling of flushing by applications and room for improvement.
-    * InnoDB is specifically considered.
-    * Flushing heuristics in XtraDB to avoid LRU stalls.
-* Filesystems and AIO 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;g) OOM and Application notifications&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;* Can application register with OOM notifier and ramp down their memory usage accordingly?
-* Do cgroups help here? 
-* Prevention strategies used - thresholds
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;h) Memory overcommit and its implications&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;* Assumptions made by databases about memory
-* OS_MAP_POPULATE for memory pools and consequences with NUMA balancing
-* Malloc failures, avoiding memory starvation and OOM.
-* Static (allocated at startup) and dynamic (growing with connections) memory allocations.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;i) Madvise usage&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;* Databases which depend on kernel for managing page cache and dirty pages (than with O_DIRECT), can use madvise like:
-    # MADV_HWPOISON for testing of memory exceptions in application code.
-    # MADV_DONTNEED, MADV_SEQUENTIAL and MADV_WILLNEED to provide hints to readahead path.
-    # MADV_DONTDUMP for smaller coredumps (with InnoDB, which otherwise will produe several GB coredumps).
-    # MADV_SEQUENTIAL for backup tools. 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;j) Few (Mis)understood sysctls&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;* vm.swappiness and OOM
-* vm.vfs_cache_pressure
-* vm.dirty*
-* vm.zone_reclaim_mode 
-* vm.overcommit_ratio  and many others
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In short, this talk, will try to cover all the possible rough edges a database runs into, in regards with memory at scale. The audience, especially the database devops, should be able to understand possible memory issues here, and strategies to either avoid them, or fix them in their applications, or in the design of their database systems itself. Some of the issues brought up in the database/kernel interlock at Linux CollabSummit -  http://collaborationsummit2014.sched.org/event/4a8b09eac20eff750fb96b90093050d7#.U8xB-6ZX-DI - will also be discussed, with updates, if any.&lt;/p&gt;
-
-&lt;p&gt;There is no single cookbook for this since it is dependent on various factors like the platform (VM, baremetal or containers), UMA or NUMA systems, for which appropriate methods like cgroups, NUMA balancing, affinities can be used. An important factor to consider here is that memory is not a standalone piece but fits into the jigsaw of CPU and I/O, thus affecting them and be affected by them. Hence, those will be given due consideration while devising solutions, especially ones related to cgroups. Nothing is without side-effects however, so impacts of any measures and related overheads will also be discussed and ways in which they can be circumvented, if any. Finally, memory impact of MySQL on OS and vice-versa will be glossed over.&lt;/p&gt;</description>
+&lt;p&gt;Please note that this talk replaces one entitled "ENOMEM: Will databases ever stop asking for more memory" which was to have been given by Raghavendra Prabhu. Regrettably Raghu has withdrawn from the event on account of Visa appliance delay.&lt;/p&gt;</description>
         <persons>
-          <person id="1274">Raghavendra Prabhu</person>
+          <person id="1239">Andrew Morgan</person>
         </persons>
         <links>
         </links>
@@ -12815,7 +12683,7 @@ FOSDEM is a very good place to discuss general purpose operating systems vs. ded
         <type>devroom</type>
         <language/>
         <abstract>&lt;p&gt;A detailed walk through the analysis of a deadlock in the HelenOS filesystem layer involving IPC communication and spread across four server processes. The talk will focus on demonstrating how a problem like this can be root caused from within the same running HelenOS instance that was affected by it, relying solely on its own observability features.&lt;/p&gt;</abstract>
-        <description>&lt;p&gt;A detailed walk through the analysis of a deadlock in the HelenOS filesystem layer involving IPC communication and spread across four server processes. The talk will focus on demonstrating how a problem like this can be root caused from within the same running HelenOS instance that was affected by it, relying solely on its own observability features.&lt;/p&gt;</description>
+        <description></description>
         <persons>
           <person id="604">Jakub Jermář</person>
         </persons>
@@ -13257,17 +13125,17 @@ And except serving you web application comfortably online, ITW allows you to loc
         <links>
         </links>
       </event>
-      <event id="3437">
+      <event id="3413">
         <start>14:00</start>
         <duration>00:25</duration>
         <room>K.4.201</room>
-        <slug>java_modules</slug>
-        <title>Java 9: Make Way for Modules!</title>
+        <slug>state_of_openjdk</slug>
+        <title>The State of OpenJDK</title>
         <subtitle/>
         <track>Java</track>
         <type>devroom</type>
         <language/>
-        <abstract>&lt;p&gt;Java 9 will introduce a standard module system to the platform in order to modularize the platform itself, improve performance and security, and simplify the development and maintenance of large applications.  In this session we'll discuss how these changes will impact developers in general and those who work on the JDK in particular.&lt;/p&gt;</abstract>
+        <abstract>&lt;p&gt;A review of the past year in the life of the OpenJDK Community, and a look at what's ahead.&lt;/p&gt;</abstract>
         <description></description>
         <persons>
           <person id="218">Mark Reinhold</person>
@@ -13661,7 +13529,7 @@ we'll focus on the status on Gallium Nine today :&lt;/p&gt;
         <room>K.4.601</room>
         <slug>tegra</slug>
         <title>Supporting Nouveau on the Tegra K1 System-on-chip</title>
-        <subtitle/>
+        <subtitle>How NVIDIA became a Nouveau contributor</subtitle>
         <track>Graphics</track>
         <type>devroom</type>
         <language/>
