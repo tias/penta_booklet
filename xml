@@ -459,10 +459,10 @@ how this is relevant for the complete free software eco system and how you can c
         <track>Lightning talks</track>
         <type>lightningtalk</type>
         <language/>
-        <abstract>&lt;p&gt;I have worked for the past 1.5 years full-time on Adblock Plus, an open source browser extension which blocks ads. There is an increasing popularity of adblockers, but most people still don't know how an adblocker actually works. Adblock Plus is the most popular adblocker with over 50,000,000 users, and most other adblockers adopted our approach and even our filters. I would like to explain what those filters do, how they are implemented, and what the limitations are.&lt;/p&gt;</abstract>
+        <abstract>&lt;p&gt;There is an increase in popularity of adblockers. Adblock Plus is the oldest and most popular one, with over 50M users. But most people still don't know how an adblocker actually works. In this talk I will attempt to explain how adblocking works, at least how we have implemented it in Adblock Plus.&lt;/p&gt;</abstract>
         <description></description>
         <persons>
-          <person id="2529">Sebastian Noack</person>
+          <person id="2529">snoack Noack</person>
         </persons>
         <links>
         </links>
@@ -1471,6 +1471,39 @@ Also, the steps of building our devices will be presented. This includes the dev
       </event>
     </room>
     <room name="H.1301 (Cornil)">
+      <event id="3524">
+        <start>10:30</start>
+        <duration>00:25</duration>
+        <room>H.1301 (Cornil)</room>
+        <slug>python_&amp;_postgresql,_a_wonderful_wedding</slug>
+        <title>Python &amp; PostgreSQL, a Wonderful Wedding</title>
+        <subtitle/>
+        <track>Python</track>
+        <type>devroom</type>
+        <language/>
+        <abstract>&lt;p&gt;Python and PostgreSQL, two tools we like to use for our projects but do you know everything about them? The talk will give an overview of psycopg2, SQLAlchemy, Alembic and PL/Python, these libraries can be used with PostgreSQL to improve the life of the Python developer.&lt;/p&gt;</abstract>
+        <description>&lt;p&gt;Python and PostgreSQL, two tools we like to use for our projects but do you know everything about them?&lt;/p&gt;
+
+&lt;p&gt;The talk will give an overview of psycopg2, SQLAlchemy, Alembic and PL/Python, these libraries can be used with PostgreSQL.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;psycopg2, the well known connector, this basic component is really useful, well documented and battle-tested and used by the most famous toolkits of the Python ecosystem.&lt;/li&gt;
+&lt;li&gt;SQLAlchemy, a Python SQL toolkit and Object Relational Mapper, you can use this library to create your models and interact with them.&lt;/li&gt;
+&lt;li&gt;Alembic, a lightweight database migration tool for usage with SQLAlchemy, allows to create some migration scripts for your project.&lt;/li&gt;
+&lt;li&gt;PL/Python, a procedural language for PostgreSQL, allows to write functions in the Python language.&lt;/li&gt;
+&lt;li&gt;MultiCorn, a Foreign Data Wrapper in Python&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Please note that this talk replaces one entitled "TaskFlow: State Management Framework" which was to have been given by "Vishal Yadav".  Regrettably "Vishal Yadav" has withdrawn from the event on account of an illness.
+We wish him/her a speedy recovery.&lt;/p&gt;</description>
+        <persons>
+          <person id="2990">Stéphane Wirtel</person>
+        </persons>
+        <links>
+          <link href="https://speakerdeck.com/matrixise/python-and-postgresql-a-wonderful-wedding">Slides in French</link>
+        </links>
+      </event>
       <event id="2751">
         <start>11:00</start>
         <duration>00:25</duration>
@@ -5113,7 +5146,7 @@ any infrustructure other than a well configured IPv4 or IPv6 network supporting 
         <duration>00:30</duration>
         <room>UD2.218A</room>
         <slug>hardware_switches</slug>
-        <title>hardware switches - the opensource approach</title>
+        <title>CANCELLED - hardware switches - the opensource approach</title>
         <subtitle/>
         <track>Network management and SDN</track>
         <type>devroom</type>
@@ -5815,13 +5848,13 @@ Those sermons are important. However, it turns out Perl 6 is actually a fairly e
         <start>15:35</start>
         <duration>00:50</duration>
         <room>K.3.401</room>
-        <slug>life_without_plastic_bags</slug>
-        <title>Life without plastic bags</title>
-        <subtitle>On reducing the amount of Collectable Garbage, for better performance and greater glory</subtitle>
+        <slug>fast_enough_perl6</slug>
+        <title>"Fast enough” Perl 6</title>
+        <subtitle>How I learned to stop worrying and love games</subtitle>
         <track>Perl</track>
         <type>devroom</type>
         <language/>
-        <abstract>&lt;p&gt;We've grown quite careless about trash in our developed civilization; with the abundance of resources we bring less attention to efficiency and frugality. What about situations when we &lt;em&gt;do&lt;/em&gt; need to care about the amount of garbage we produce? Let's take a journey through computer games, Perl 6 internals and bad practices and see what we can squeeze out of it when we really need to.&lt;/p&gt;</abstract>
+        <abstract>&lt;p&gt;Every time a question of speed or production readiness comes up, the answer always seems to be somewhat evasive -- "depends on what your production is", they say, or it's fast enough for my use case". Let's see how it works with computer games, where you can't easily cheat with pre-rendering or caching to workaround things being slow.&lt;/p&gt;</abstract>
         <description></description>
         <persons>
           <person id="2973">Tadeusz 'tadzik' Sosnierz</person>
@@ -5892,8 +5925,26 @@ In this session, we'll explore how Perl 6 strikes a balance between static and d
       </event>
     </room>
     <room name="K.4.201">
-      <event id="3437">
+      <event id="3413">
         <start>10:30</start>
+        <duration>00:25</duration>
+        <room>K.4.201</room>
+        <slug>state_of_openjdk</slug>
+        <title>The State of OpenJDK</title>
+        <subtitle/>
+        <track>Java</track>
+        <type>devroom</type>
+        <language/>
+        <abstract>&lt;p&gt;A review of the past year in the life of the OpenJDK Community, and a look at what's ahead.&lt;/p&gt;</abstract>
+        <description></description>
+        <persons>
+          <person id="218">Mark Reinhold</person>
+        </persons>
+        <links>
+        </links>
+      </event>
+      <event id="3437">
+        <start>11:00</start>
         <duration>00:25</duration>
         <room>K.4.201</room>
         <slug>java_modules</slug>
@@ -5903,24 +5954,6 @@ In this session, we'll explore how Perl 6 strikes a balance between static and d
         <type>devroom</type>
         <language/>
         <abstract>&lt;p&gt;Java 9 will introduce a standard module system to the platform in order to modularize the platform itself, improve performance and security, and simplify the development and maintenance of large applications.  In this session we'll discuss how these changes will impact developers in general and those who work on the JDK in particular.&lt;/p&gt;</abstract>
-        <description></description>
-        <persons>
-          <person id="218">Mark Reinhold</person>
-        </persons>
-        <links>
-        </links>
-      </event>
-      <event id="3418">
-        <start>11:00</start>
-        <duration>00:25</duration>
-        <room>K.4.201</room>
-        <slug>beyond_java_nine</slug>
-        <title>Beyond Java 9</title>
-        <subtitle/>
-        <track>Java</track>
-        <type>devroom</type>
-        <language/>
-        <abstract>&lt;p&gt;Is there life after Java 9?  Yes!  This session will offer a highly-speculative sneak preview of advanced features currently in development for the Java language and virtual machine.&lt;/p&gt;</abstract>
         <description></description>
         <persons>
           <person id="218">Mark Reinhold</person>
@@ -10192,6 +10225,7 @@ This includes Geocoding, Points of interest search, Traffic Obstruction data, El
 &lt;p&gt;We show the few lines that need to be added to the simulation code to read a mesh from the GIS and write the results to the GIS. We also present a prototype mesh layer for QGIS that has been implemented as a PluginLayer.&lt;/p&gt;</abstract>
         <description></description>
         <persons>
+          <person id="2773">Hugo Mercier</person>
           <person id="2775">Vincent Mora</person>
         </persons>
         <links>
@@ -10389,6 +10423,7 @@ How can I integrate it in existing applications and/or solutions?&lt;/p&gt;
         <description></description>
         <persons>
           <person id="2815">Frank Maes</person>
+          <person id="2989">Jan De Moerloose</person>
         </persons>
         <links>
         </links>
@@ -10491,12 +10526,8 @@ By loading and rendering only visible regions up to a certain level of detail, h
         <track>Geospatial</track>
         <type>devroom</type>
         <language/>
-        <abstract>&lt;p&gt;[Ol3-Cesium][https://github.com/openlayers/ol3-cesium] is a web library for binding an [OpenLayers3][http://openlayers.org/] map and a [Cesium][http://cesiumjs.org/] globe together.
-The 3D globe is automatically set up from the OpenLayers3 map and the library takes care of synchronizing and switching between the map and the globe.
-Both raster and vector layers from the map are displayed on the globe; features are positioned in 3D and styled like in the map.
-Terrain and additional data may be added to the globe and advanced use is possible using the exported core functions.&lt;/p&gt;</abstract>
-        <description>&lt;p&gt;[Ol3-Cesium][https://github.com/openlayers/ol3-cesium] is an exciting web library bringing 3D to an [OpenLayers3][http://openlayers.org/] map.
-A [Cesium][http://cesiumjs.org/] virtual globe is automatically created from the map and displayed side-by-side for collaborative interaction or stacked for exclusive tasks.
+        <abstract>&lt;p&gt;Ol3-Cesium is an exciting web library bringing 3D to an OpenLayers3 map.
+A Cesium virtual globe is automatically created from the map and displayed side-by-side for collaborative interaction or stacked for exclusive tasks.
 The globe camera and the map view (centre, resolution, rotation) are bidirectionally synchronized: interacting on one updating the other.&lt;/p&gt;
 
 &lt;p&gt;Layers are synchronized from the map:
@@ -10505,7 +10536,8 @@ The globe camera and the map view (centre, resolution, rotation) are bidirection
 Additionally, specific data may be displayed on the globe, like terrain or vectors.&lt;/p&gt;
 
 &lt;p&gt;Vectors are re-projected on-the-fly during synchronisation.
-Since one synchronizer may not fit all needs, the library exports core functions to allow advanced or custom use.&lt;/p&gt;</description>
+Since one synchronizer may not fit all needs, the library exports core functions to allow advanced or custom use.&lt;/p&gt;</abstract>
+        <description></description>
         <persons>
           <person id="2430">Guillaume Beraudo</person>
         </persons>
@@ -13125,17 +13157,17 @@ And except serving you web application comfortably online, ITW allows you to loc
         <links>
         </links>
       </event>
-      <event id="3413">
+      <event id="3418">
         <start>14:00</start>
         <duration>00:25</duration>
         <room>K.4.201</room>
-        <slug>state_of_openjdk</slug>
-        <title>The State of OpenJDK</title>
+        <slug>beyond_java_nine</slug>
+        <title>Beyond Java 9</title>
         <subtitle/>
         <track>Java</track>
         <type>devroom</type>
         <language/>
-        <abstract>&lt;p&gt;A review of the past year in the life of the OpenJDK Community, and a look at what's ahead.&lt;/p&gt;</abstract>
+        <abstract>&lt;p&gt;Is there life after Java 9?  Yes!  This session will offer a highly-speculative sneak preview of advanced features currently in development for the Java language and virtual machine.&lt;/p&gt;</abstract>
         <description></description>
         <persons>
           <person id="218">Mark Reinhold</person>
