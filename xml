@@ -189,6 +189,7 @@ of JRuby, or build languages such as JavaScript, R, and Python 3.&lt;/p&gt;</des
           <person id="2279">Giulio Eulisse</person>
         </persons>
         <links>
+          <link href="http://igprof.org">IgProf Homepage</link>
         </links>
       </event>
       <event id="2622">
@@ -462,7 +463,7 @@ how this is relevant for the complete free software eco system and how you can c
         <abstract>&lt;p&gt;There is an increase in popularity of adblockers. Adblock Plus is the oldest and most popular one, with over 50M users. But most people still don't know how an adblocker actually works. In this talk I will attempt to explain how adblocking works, at least how we have implemented it in Adblock Plus.&lt;/p&gt;</abstract>
         <description></description>
         <persons>
-          <person id="2529">snoack Noack</person>
+          <person id="2529">Sebastian Noack</person>
         </persons>
         <links>
         </links>
@@ -1355,6 +1356,27 @@ Xvisor, for the Boundary Devices Nitrogen6x (and the Freescale SabreLite).&lt;/p
           <link href="http://marquisdegeek.com/rnd_chdk.php">Speakers CHDK tools</link>
         </links>
       </event>
+      <event id="3186">
+        <start>15:00</start>
+        <duration>00:45</duration>
+        <room>UB2.252A (Lameere)</room>
+        <slug>embedded_freedom</slug>
+        <title>Embedded  freedom roundtable</title>
+        <subtitle/>
+        <track>Embedded</track>
+        <type>devroom</type>
+        <language/>
+        <abstract>&lt;p&gt;GNU and Linux are now embedded on more kinds of hardware than ever,
+but often only by requiring proprietary bits. Plus, we now have
+tablets and phones loaded with nonfree software on top of a free core
+-- how do we get the freedom we all want, and how do we create the
+market for that? Roundtable discussion.&lt;/p&gt;</abstract>
+        <description>&lt;p&gt;Round table about embeddd freedom, problems, approaches and solutions.&lt;/p&gt;</description>
+        <persons>
+        </persons>
+        <links>
+        </links>
+      </event>
       <event id="2738">
         <start>16:00</start>
         <duration>00:25</duration>
@@ -1445,6 +1467,8 @@ Also, the steps of building our devices will be presented. This includes the dev
           <link href="https://validation.linaro.org/static/docs/">LAVA documentation</link>
           <link href="http://git-scm.com/docs/git-bisect">git bisect manual</link>
           <link href="https://git.linaro.org/people/riku.voipio/lava-boot.git/blob/HEAD:/README">Lava-boot git and README</link>
+          <link href="http://http://people.linaro.org/~riku.voipio/lava-bisect/#/">Talk slides</link>
+          <link href="http://">http://</link>
         </links>
       </event>
       <event id="3023">
@@ -3372,23 +3396,30 @@ We describe some implementation challenges and how we tackled them.&lt;/p&gt;</d
         <links>
         </links>
       </event>
-      <event id="3506">
+      <event id="3526">
         <start>17:10</start>
-        <duration>00:20</duration>
+        <duration>00:40</duration>
         <room>H.2214</room>
-        <slug>monroe_emacs_client_for_clojure_repl</slug>
-        <title>Monroe</title>
-        <subtitle>Emacs client for Clojure network REPL</subtitle>
+        <slug>escaping_dsl_hell</slug>
+        <title>Escaping DSL Hell By Having Parenthesis All The Way Down</title>
+        <subtitle/>
         <track>Lisp</track>
         <type>devroom</type>
         <language/>
-        <abstract>&lt;p&gt;Monroe is a lightweight network REPL client for Clojure nREPL protocol, focused on simplicity, familiarity and stability, written in pure elisp (Emacs Lisp). This talk will introduce the project, explain the reasoning for yet another implementation and compare it with existing clients.&lt;/p&gt;</abstract>
+        <abstract>&lt;p&gt;Domain Specific Languages, defined broadly, are everywhere. We will look at the good, the bad and the ugly and see where Lisp excels (ranting a bit about Configuration Management tools as that's what I spend lots of my day doing)&lt;/p&gt;
+
+&lt;p&gt;The world is buzzing with the idea of teaching everyone to program. Sometimes we create simpler languages and environments for learning but if we constrain them too much we can impoverish the learner.&lt;/p&gt;
+
+&lt;p&gt;For scientists we have R, Maple, Mathematica and Matlab etc - but how easy is it to build a web service, run Hadoop jobs, read files in some obscure format or talk to a datastore? Better to give them a productive environment to solve their problems quickly, with the full power of Clojure when they need.&lt;/p&gt;
+
+&lt;p&gt;Concretely we will reimagine Netlogo and Geomlab as Clojure DSLs. See how embedding them in Clojure makes the implementation easier, gives greater power to the user and enables extension.&lt;/p&gt;
+
+&lt;p&gt;We have a bunch of great embeddings already in Clojure: logic, stats, datalog, CSP - Let’s build more and not trap people in DSL Hell.&lt;/p&gt;</abstract>
         <description></description>
         <persons>
-          <person id="1301">Sanel Zukan</person>
+          <person id="2901">thattommyhall</person>
         </persons>
         <links>
-          <link href="http://github.com/sanel/monroe">Monroe Home Page</link>
         </links>
       </event>
     </room>
@@ -13291,31 +13322,29 @@ Finally, I will discuss in details how to write the following plugins.&lt;/p&gt;
         <links>
         </links>
       </event>
-      <event id="2780">
+      <event id="3454">
         <start>10:40</start>
-        <duration>00:30</duration>
+        <duration>00:40</duration>
         <room>K.4.401</room>
-        <slug>llvm_arm</slug>
-        <title>A closer look at ARM code quality</title>
+        <slug>llvm_aarch64</slug>
+        <title>LLVM's AArch64 support - history &amp; status.</title>
         <subtitle/>
         <track>LLVM toolchain</track>
         <type>devroom</type>
         <language/>
-        <abstract>&lt;p&gt;A closer look at ARM code quality&lt;/p&gt;
-
-&lt;p&gt;The ARM LLVM backend has been around for many years and generates high quality code, yet there are still standard benchmarks where GCC is generating more efficient code than LLVM.
-The goal of this talk is to get a better understanding of why the GCC-generated code for those benchmarks is executing more efficiently and also about finding out what we need to do on the LLVM side to address those code generation deficiencies.
-This talk presents current performance numbers for the SPEC CPU benchmark suites on ARM, comparing the performance of LLVM and GCC, with the main focus on the SPEC CPU integer benchmarks.
-To dive a little bit deeper, we will also have a closer look at the generated assembly code of selected benchmarks where LLVM is performing worse than GCC and use the results of this performance analysis to point out potential code generation opportunities for LLVM.&lt;/p&gt;</abstract>
+        <abstract>&lt;p&gt;AArch64 is ARM's 64-bit architecture.  I'll present a short
+history of how the AArch64 support in LLVM was implemented, a
+summary of which general AArch64 features are well supported by
+LLVM and a summary of which areas need more work.&lt;/p&gt;</abstract>
         <description></description>
         <persons>
-          <person id="2522">Tilmann Scheller</person>
+          <person id="2926">Kristof Beyls</person>
         </persons>
         <links>
         </links>
       </event>
       <event id="3042">
-        <start>11:20</start>
+        <start>11:25</start>
         <duration>00:30</duration>
         <room>K.4.401</room>
         <slug>llvm_internal_asm</slug>
@@ -13415,23 +13444,22 @@ result, moviCompile is able to generate heterogeneous assembly code consisting o
         <links>
         </links>
       </event>
-      <event id="3454">
+      <event id="3525">
         <start>14:30</start>
-        <duration>00:40</duration>
+        <duration>00:20</duration>
         <room>K.4.401</room>
-        <slug>llvm_aarch64</slug>
-        <title>LLVM's AArch64 support - history &amp; status.</title>
+        <slug>llvmmagicland</slug>
+        <title>Adventures with LLVM in a magical land where pointers are not integers</title>
         <subtitle/>
         <track>LLVM toolchain</track>
         <type>devroom</type>
         <language/>
-        <abstract>&lt;p&gt;AArch64 is ARM's 64-bit architecture.  I'll present a short
-history of how the AArch64 support in LLVM was implemented, a
-summary of which general AArch64 features are well supported by
-LLVM and a summary of which areas need more work.&lt;/p&gt;</abstract>
-        <description></description>
+        <abstract>&lt;p&gt;Most modern processors have a very simple idea of a pointer: an integer containing an address in memory.  This representation is used by all of the architectures that are officially supported by LLVM.  In this talk, we'll take a look at what's needed for architecture where it isn't the case.&lt;/p&gt;</abstract>
+        <description>&lt;p&gt;The CHERI processor (see Security track talk for more detail) provides a capability-oriented model for addressing memory.  All virtual addresses are accessed via a memory capability, an unforgeable token of authority that can be stored in registers or memory and grants rights to a region of memory.  We want to use memory capabilities as pointers and to do this have had to teach LLVM that (some) pointers are not integers.&lt;/p&gt;
+
+&lt;p&gt;Fortunately, LLVM IR is agnostic to pointer representation.  Unfortunately, various parts of the code make this assumption.  In this talk, we'll take a look at some of the changes that were required in the target-agnostic parts of LLVM to allow us to write a hardware-enforced memory-safe C compiler.&lt;/p&gt;</description>
         <persons>
-          <person id="2926">Kristof Beyls</person>
+          <person id="391">David Chisnall</person>
         </persons>
         <links>
         </links>
