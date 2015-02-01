@@ -4181,7 +4181,7 @@ University of Southampton.&lt;/p&gt;</abstract>
         <track>Graph processing</track>
         <type>devroom</type>
         <language/>
-        <abstract>&lt;p&gt;Apache Flink (incubating) is a general-purpose platform for batch and streaming distributed data processing. This talk describes how Flink’s powerful APIs, iterative operators and other unique features make it a competitive alternative for large-scale graph processing as well. We take a close look at how one can elegantly express graph analysis tasks, using common Flink operators and how different graph processing models, like vertex-centric, can be easily mapped to Flink dataflows. Next, we get a sneak preview into Flink's upcoming Graph API, which further simplifies graph application development in Flink. Finally, we show how to perform end-to-end data analysis, mixing common Flink operators and the Graph API, without having to build complex pipelines and combine different systems. We will go through a step-by-step example, demonstrating how to perform loading, transformation, filtering, graph creation and analysis, with a single Flink program.&lt;/p&gt;</abstract>
+        <abstract>&lt;p&gt;Apache Flink is a general-purpose platform for batch and streaming distributed data processing. This talk describes how Flink’s powerful APIs, iterative operators and other unique features make it a competitive alternative for large-scale graph processing as well. We take a close look at how one can elegantly express graph analysis tasks, using common Flink operators and how different graph processing models, like vertex-centric, can be easily mapped to Flink dataflows. Next, we get a sneak preview into Flink's upcoming Graph API, which further simplifies graph application development in Flink. Finally, we show how to perform end-to-end data analysis, mixing common Flink operators and the Graph API, without having to build complex pipelines and combine different systems. We will go through a step-by-step example, demonstrating how to perform loading, transformation, filtering, graph creation and analysis, with a single Flink program.&lt;/p&gt;</abstract>
         <description></description>
         <persons>
           <person id="2634">Vasia Kalavri</person>
@@ -10306,9 +10306,10 @@ After six years of development and a long beta release cycle the new stable GRAS
           <person id="2704">Moritz Lennert</person>
         </persons>
         <links>
-          <link href="http://grass.osgeo.org/">GRASS project homepage</link>
-          <link href="http://grass.osgeo.org/programming7/">GRASS Programmer's Manual (C-API)</link>
-          <link href="http://grass.osgeo.org/grass71/manuals/libpython/">GRASS Python library</link>
+          <link href="http://grass.osgeo.org/">GRASS GIS project homepage</link>
+          <link href="http://grass.osgeo.org/programming7/">GRASS GIS Programmer's Manual (C-API)</link>
+          <link href="http://grass.osgeo.org/grass71/manuals/libpython/">GRASS GIS Python library</link>
+          <link href="http://grasswiki.osgeo.org/wiki/GRASS_GIS_APIs">GRASS GIS APIs</link>
         </links>
       </event>
       <event id="3177">
