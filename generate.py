@@ -183,12 +183,13 @@ def generate_tables(events,emptyrooms=[]):
         rooms = set([e['room'] for e in day_events if e['track'] != 'Certification'])
         # plus empty ones, with hardcoded exceptions
         rooms |= set([room for (day,room) in emptyrooms if day == day_name and (room != "H.3227") ])
+        rooms.discard('UD2.Corridor')
 
         # first page: main tracks and ltalks,
         #             in: Janson, K.1.105 and H.2215
         mainrooms = [r for r in ['Janson', 'K.1.105 (La Fontaine)', 'H.2215 (Ferrer)'] if r in rooms]
         restrooms = rooms.difference(mainrooms)
-        paged_rooms = [mainrooms] + [x for x in get_slice(sorted(restrooms), 4)]
+        paged_rooms = [mainrooms] + [x for x in get_slice(sorted(restrooms), 3)]
 
 
         # per page 4 rooms, so it fits in modulo4 pages
