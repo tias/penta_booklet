@@ -124,7 +124,7 @@ def get_event(elem):
 
 def latexify(string):
     # f and b are only approximations to the correct characters
-    return string.encode('ascii', 'xmlcharrefreplace').replace('&#10765;','f').replace('&#1073;','b').replace('&#8212;','\\textemdash{}').replace('&#345;','\\v{r}').replace('&#283;','\\\'{y}').replace('&#263;','\\\'{c}').replace('&#229;','\\r{a}').replace('&#242;','\\`{o}').replace('&#269;','\\v{c}').replace('&#382;','\\v{z}').replace('&#192;','\\`{A}').replace('&#324;','\\\'{n}').replace('&#225;','\\`{a}').replace('&#233;','\\\'{e}').replace('&#353;','\\v{s}').replace('&#253;','\\\'{y}').replace('&#246;','\\"{o}').replace('&#228;','\\"{a}').replace('&#235;','\\"{e}').replace('&#214;','\\"{O}').replace('&#201;','\\\'{E}').replace('&#252;','\\"{u}').replace('&#231;','\\c{c}').replace('&#232;','\\`{e}').replace('&#243;','\\\'{o}').replace('&#250;','\\\'{u}').replace('&#239;','\\"{\\i}').replace('&#241;','\\~{n}').replace('&#8217;', '\'').replace('&#8230;', '\\ldots{}').replace('&#251;','\\^{u}').replace('&#259;','\\u{a}').replace('&#248;','\\o{}').replace('&#237;','\\\'{i}').replace('&#352;','\\v{S}').replace('&#223;','{\\ss}').replace('&#322;','\\l{}').replace('&#216;','{\\O}').replace('<em>','\\textbf{').replace('</em>','}').replace('<ul>','').replace('</li></ul>','.').replace('</ul>','').replace('<li>','').replace('</li>',';').replace('#','\\#').replace('&','\\&').replace('_','\\_')
+    return string.encode('ascii', 'xmlcharrefreplace').replace('&#10765;','f').replace('&#1073;','b').replace('&#8212;','\\textemdash{}').replace('&#345;','\\v{r}').replace('&#283;','\\\'{y}').replace('&#263;','\\\'{c}').replace('&#229;','\\r{a}').replace('&#242;','\\`{o}').replace('&#269;','\\v{c}').replace('&#382;','\\v{z}').replace('&#192;','\\`{A}').replace('&#324;','\\\'{n}').replace('&#225;','\\`{a}').replace('&#233;','\\\'{e}').replace('&#353;','\\v{s}').replace('&#253;','\\\'{y}').replace('&#246;','\\"{o}').replace('&#228;','\\"{a}').replace('&#235;','\\"{e}').replace('&#214;','\\"{O}').replace('&#201;','\\\'{E}').replace('&#252;','\\"{u}').replace('&#231;','\\c{c}').replace('&#232;','\\`{e}').replace('&#243;','\\\'{o}').replace('&#250;','\\\'{u}').replace('&#239;','\\"{\\i}').replace('&#241;','\\~{n}').replace('&#8217;', '\'').replace('&#8230;', '\\ldots{}').replace('&#251;','\\^{u}').replace('&#259;','\\u{a}').replace('&#248;','\\o{}').replace('&#237;','\\\'{i}').replace('&#352;','\\v{S}').replace('&#223;','{\\ss}').replace('&#322;','\\l{}').replace('&#216;','{\\O}').replace('<em>','\\textbf{').replace('</em>','}').replace('<ul>','').replace('</li></ul>','.').replace('</ul>','').replace('<li>','').replace('</li>',';').replace('#','\\#').replace('&','\\&').replace('_','\\_').replace('%','\\%')
 
 
 def urlify(string):
@@ -336,13 +336,6 @@ def table_events(rooms, allevents, msg=""):
                 speakers = e['speakers']
                 timerows = math.ceil(total_seconds(tEv[1] - tEv[0]) / total_seconds(delta))
                 linelength = 45*4/len(rooms)
-                # The horror, manual hacks...
-                if msg.startswith('Xvisor'):
-                    linelength = 28*4/len(rooms)
-                if msg.startswith('Caciocavallo'):
-                    linelength = 30*4/len(rooms)
-                if msg.startswith('Taking Web GIS'):
-                    linelength = 30*4/len(rooms)
 
                 if timerows == 1:
                     # restrict and truncate to 1 row
@@ -397,17 +390,13 @@ def table_events(rooms, allevents, msg=""):
                             chars = lines*linelength
                             chars -= 7+len(tspeakers)*0.7
                             if len(msg) >= chars:
-                                print "Inline Author, MsgTrunk (python)", debug
-                                 #HACKEDYHACK, manual exceptions
-                                if "MetaCPAN" in msg or\
-                                   msg.startswith('Interactive routing algo'):
-                                    chars -= 5
+                                #print "Inline Author, MsgTrunk (python)", debug
                                 msg = truncate(msg, chars)
                             texcmd += "Inline"
                         elif lines == 2:
                             if linesspkr == 1:
                                 # case 2.2.1 one line title, one line author
-                                print "MsgTrunk", debug
+                                #print "MsgTrunk", debug
                                 texcmd += "MsgTrunk"
                             else:
                                 # case 2.2.2 one line title, one line author
@@ -446,11 +435,11 @@ def table_events(rooms, allevents, msg=""):
 
 if __name__ == "__main__":
 
-    if len(sys.argv) == 1 or sys.argv[1] != '-f':
-        print "MANUAL Version, no regeneration possible"
-        sys.exit(1)
-    else:
-        del sys.argv[1]
+    #if len(sys.argv) == 1 or sys.argv[1] != '-f':
+    #    print "MANUAL Version, no regeneration possible"
+    #    sys.exit(1)
+    #else:
+    #    del sys.argv[1]
 
     xmlfile = 'xml'
 
