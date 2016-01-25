@@ -194,6 +194,8 @@ def generate_tables(events,emptyrooms=[]):
         # per page 4 rooms, so it fits in modulo4 pages
         for (i,room_slice) in enumerate(paged_rooms):
             subroom_events = [e for e in day_events if e['room'] in room_slice]
+            if len(subroom_events) == 0:
+                continue
                 
             # create subfile
             subcontent = "\\pagebreak"
@@ -335,7 +337,7 @@ def table_events(rooms, allevents, msg=""):
                 msg = e['title']
                 speakers = e['speakers']
                 timerows = math.ceil(total_seconds(tEv[1] - tEv[0]) / total_seconds(delta))
-                linelength = 45*4/len(rooms)
+                linelength = 42*4/len(rooms) # MAGIC CONSTANT!
 
                 if timerows == 1:
                     # restrict and truncate to 1 row
@@ -373,11 +375,11 @@ def table_events(rooms, allevents, msg=""):
                             debug += " linesleft: %f"%linesleft
                             if linesleft == 1:
                                 # case 1.2.1: one line of author, use truncate{}
-                                print "AuthorTrunk", debug
+                                #print "AuthorTrunk", debug
                                 texcmd += "AuthorTrunk"
                             else:
                                 # case 1.2.1: multiple lines, compute trucate
-                                print "AuthorTrunk (python)", debug
+                                #print "AuthorTrunk (python)", debug
                                 texcmd += "Compact"
                                 lines = lines
                                 tspeakers = truncate(tspeakers,
@@ -400,17 +402,17 @@ def table_events(rooms, allevents, msg=""):
                                 texcmd += "MsgTrunk"
                             else:
                                 # case 2.2.2 one line title, one line author
-                                print "MsgTrunk + AuthorTrunk", debug
+                                #print "MsgTrunk + AuthorTrunk", debug
                                 texcmd += "TrunkTrunk"
                         else:
                             msg = truncate(msg, linelength*(lines-1))
                             if linesspkr == 1:
                                 # case 2.3.2 multi-line title, one line author
-                                print "MsgTrunk (python)", debug
+                                #print "MsgTrunk (python)", debug
                                 texcmd += "Compact"
                             else:
                                 # case 2.3.2 multi-line title, one line author
-                                print "MsgTrunk (python) + AuthorTrunk", debug
+                                #print "MsgTrunk (python) + AuthorTrunk", debug
                                 texcmd += "AuthorTrunk"
 
                     content += "\\%s{%i}{%s}{%s}\n"%\
