@@ -9,6 +9,9 @@ import csv
 from collections import defaultdict
 import hashlib
 import math
+import re
+
+import symbols
 
 def date2str(date):
     return time.strftime('%A %d %B', time.strptime(date, '%Y-%m-%d'))
@@ -117,14 +120,26 @@ def get_event(elem):
     talk['allspeakers'] = ", ".join(talk['speakers'])
     talk['title'] = latexify(talk['title']).replace(' - ', ' -- ')
     talk['subtitle'] = latexify(talk['subtitle']).replace(' - ', ' -- ')
-    talk['abstract'] = latexify(talk['abstract'])
-    talk['description'] = latexify(talk['description'])
+    #talk['abstract'] = latexify(talk['abstract'])
+    #talk['description'] = latexify(talk['description'])
 
     return talk
 
 def latexify(string):
+    oldstring = string
     # f and b are only approximations to the correct characters
-    return string.encode('ascii', 'xmlcharrefreplace').replace('&#10765;','f').replace('&#1073;','b').replace('&#8212;','\\textemdash{}').replace('&#345;','\\v{r}').replace('&#283;','\\\'{y}').replace('&#263;','\\\'{c}').replace('&#229;','\\r{a}').replace('&#242;','\\`{o}').replace('&#269;','\\v{c}').replace('&#382;','\\v{z}').replace('&#192;','\\`{A}').replace('&#324;','\\\'{n}').replace('&#225;','\\`{a}').replace('&#233;','\\\'{e}').replace('&#353;','\\v{s}').replace('&#253;','\\\'{y}').replace('&#246;','\\"{o}').replace('&#228;','\\"{a}').replace('&#235;','\\"{e}').replace('&#214;','\\"{O}').replace('&#201;','\\\'{E}').replace('&#252;','\\"{u}').replace('&#231;','\\c{c}').replace('&#232;','\\`{e}').replace('&#243;','\\\'{o}').replace('&#250;','\\\'{u}').replace('&#239;','\\"{\\i}').replace('&#241;','\\~{n}').replace('&#8217;', '\'').replace('&#8230;', '\\ldots{}').replace('&#251;','\\^{u}').replace('&#259;','\\u{a}').replace('&#248;','\\o{}').replace('&#237;','\\\'{i}').replace('&#352;','\\v{S}').replace('&#223;','{\\ss}').replace('&#322;','\\l{}').replace('&#216;','{\\O}').replace('<em>','\\textbf{').replace('</em>','}').replace('<ul>','').replace('</li></ul>','.').replace('</ul>','').replace('<li>','').replace('</li>',';').replace('#','\\#').replace('&','\\&').replace('_','\\_').replace('%','\\%')
+    # new all shiny utf8 convertor
+    #for e in symbols.to_escape:
+    #    string.replace(e, '\\'+e)
+    conv = symbols.unicode_to_latex_dict
+    string = ''.join(['{'+conv[x]+'}' if x in conv else x for x in string]) 
+
+    string = string.encode('ascii', 'xmlcharrefreplace').replace('&#10765;','f').replace('&#1073;','b').replace('&#8212;','\\textemdash{}').replace('&#345;','\\v{r}').replace('&#283;','\\\'{y}').replace('&#263;','\\\'{c}').replace('&#229;','\\r{a}').replace('&#242;','\\`{o}').replace('&#269;','\\v{c}').replace('&#382;','\\v{z}').replace('&#192;','\\`{A}').replace('&#324;','\\\'{n}').replace('&#225;','\\`{a}').replace('&#233;','\\\'{e}').replace('&#353;','\\v{s}').replace('&#253;','\\\'{y}').replace('&#246;','\\"{o}').replace('&#228;','\\"{a}').replace('&#235;','\\"{e}').replace('&#214;','\\"{O}').replace('&#201;','\\\'{E}').replace('&#252;','\\"{u}').replace('&#231;','\\c{c}').replace('&#232;','\\`{e}').replace('&#243;','\\\'{o}').replace('&#250;','\\\'{u}').replace('&#239;','\\"{\\i}').replace('&#241;','\\~{n}').replace('&#8217;', '\'').replace('&#8230;', '\\ldots{}').replace('&#251;','\\^{u}').replace('&#259;','\\u{a}').replace('&#248;','\\o{}').replace('&#237;','\\\'{i}').replace('&#352;','\\v{S}').replace('&#223;','{\\ss}').replace('&#322;','\\l{}').replace('&#216;','{\\O}').replace('<em>','\\textbf{').replace('</em>','}').replace('<ul>','').replace('</li></ul>','.').replace('</ul>','').replace('<li>','').replace('</li>',';')#.replace('_','\\_').replace('%','\\%')#.replace('&','\\&').replace('#','\\#')
+    string = re.sub(r'&#\d*','',string).replace('&','\\&').replace('#','\\#') # because all other utf8 symbols are voodoo ; )
+
+    if oldstring != string:
+        print "New:", string
+    return string
 
 
 def urlify(string):
