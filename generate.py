@@ -126,7 +126,6 @@ def get_event(elem):
     return talk
 
 def latexify(string):
-    oldstring = string
     # f and b are only approximations to the correct characters
     # new all shiny utf8 convertor
     #for e in symbols.to_escape:
@@ -134,11 +133,14 @@ def latexify(string):
     conv = symbols.unicode_to_latex_dict
     string = ''.join(['{'+conv[x]+'}' if x in conv else x for x in string]) 
 
+    # older hacky replaces (some not in _dict?)
     string = string.encode('ascii', 'xmlcharrefreplace').replace('&#10765;','f').replace('&#1073;','b').replace('&#8212;','\\textemdash{}').replace('&#345;','\\v{r}').replace('&#283;','\\\'{y}').replace('&#263;','\\\'{c}').replace('&#229;','\\r{a}').replace('&#242;','\\`{o}').replace('&#269;','\\v{c}').replace('&#382;','\\v{z}').replace('&#192;','\\`{A}').replace('&#324;','\\\'{n}').replace('&#225;','\\`{a}').replace('&#233;','\\\'{e}').replace('&#353;','\\v{s}').replace('&#253;','\\\'{y}').replace('&#246;','\\"{o}').replace('&#228;','\\"{a}').replace('&#235;','\\"{e}').replace('&#214;','\\"{O}').replace('&#201;','\\\'{E}').replace('&#252;','\\"{u}').replace('&#231;','\\c{c}').replace('&#232;','\\`{e}').replace('&#243;','\\\'{o}').replace('&#250;','\\\'{u}').replace('&#239;','\\"{\\i}').replace('&#241;','\\~{n}').replace('&#8217;', '\'').replace('&#8230;', '\\ldots{}').replace('&#251;','\\^{u}').replace('&#259;','\\u{a}').replace('&#248;','\\o{}').replace('&#237;','\\\'{i}').replace('&#352;','\\v{S}').replace('&#223;','{\\ss}').replace('&#322;','\\l{}').replace('&#216;','{\\O}').replace('<em>','\\textbf{').replace('</em>','}').replace('<ul>','').replace('</li></ul>','.').replace('</ul>','').replace('<li>','').replace('</li>',';')#.replace('_','\\_').replace('%','\\%')#.replace('&','\\&').replace('#','\\#')
-    string = re.sub(r'&#\d*','',string).replace('&','\\&').replace('#','\\#') # because all other utf8 symbols are voodoo ; )
 
-    if oldstring != string:
-        print "New:", string
+    # all other utf8 symbols are voodoo ; )
+    if '&#' in string:
+        print "Warning: hiding unkown UTF8 symbol in '%s'"%string
+    return re.sub(r'&#\d*','',string).replace('&','\\&').replace('#','\\#') 
+
     return string
 
 
